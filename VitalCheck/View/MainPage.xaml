@@ -18,7 +18,8 @@
                        HorizontalOptions="Center"/>
             </StackLayout>
             <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Label Text="Bem-Vindo ao seu rastreador de saude pessoal" 
+                <Label Text="Bem-Vindo ao seu rastreador de saude pessoal"
+                      TextColor="{StaticResource Saude4}"
                        FontSize="24" 
                        FontAttributes="Bold" 
                        HorizontalOptions="Center" 
