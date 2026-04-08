@@ -65,6 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Data\SqLite\" />
 	  <Folder Include="model\" />
 	  <Folder Include="ViewModel\" />
 	</ItemGroup>

@@ -15,8 +15,20 @@ namespace VitalCheck.Model
         public string? Senha { get; set; }
         public string? Genero { get; set; }
         public DateTime DataNascimento { get; set; }
-        public int Idade { get; set; }
         public double Peso { get; set; }
-        public double Altura { get; set; }   
+        public double Altura { get; set; }
+        public int Idade
+        {
+            get
+            {
+                var hoje = DateTime.Today;
+                var idade = hoje.Year - DataNascimento.Year;
+
+                if (DataNascimento.Date > hoje.AddYears(-idade))
+                    idade--;
+
+                return idade;
+            }
+        }
     }
 }
