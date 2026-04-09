@@ -8,6 +8,7 @@ namespace VitalCheck
         public MainPage()
         {
             InitializeComponent();
+
         }
         private async void OnSetaClicked(object sender, EventArgs e)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VitalCheck.Model
 {
-    internal class Usuario
+    public class Usuario
         {
         public Usuario() { }
         public int Id { get; set; }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace VitalCheck.Data.Interfaces
 {
-    internal interface ICrud<T>
+    public interface ICrud<T>
     {
-        Task<List<T>> GetAll();
-        Task<T> GetById(int id);
-        Task Add(T item);
-        Task Update(T item);
-        Task Delete(int id);
+        Task<List<T>> GetAllAsync();
+        Task<T> GetByIdAsync(int id);
+        Task InsertAsync(T item);
+        Task UpdateAsync(T item);
+        Task DeleteAsync(int id);
     }
 }
