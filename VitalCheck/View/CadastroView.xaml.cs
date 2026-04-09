@@ -1,10 +1,15 @@
+using VitalCheck.Model;
+using VitalCheck.Services;
+
 namespace VitalCheck.View;
 
 public partial class CadastroView : ContentPage
 {
-    public CadastroView()
+    private readonly UsuarioService _usuarioService;
+    public CadastroView(UsuarioService usuarioService)
     {
         InitializeComponent();
+        _usuarioService = usuarioService;
     }
     private async void OnLoginClicked(object sender, EventArgs e)
      {
@@ -17,4 +22,57 @@ public partial class CadastroView : ContentPage
 
         } 
      }
+    private async void OnCadastrarClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            string nome = NomeCompletoEntry.Text;
+            string email = EmailEntry.Text;
+            string senha = SenhaEntry.Text;
+            string confirmarSenha = ConfirmarSenhaEntry.Text;
+
+            if (string.IsNullOrWhiteSpace(nome) ||
+            string.IsNullOrWhiteSpace(email) ||
+            string.IsNullOrWhiteSpace(senha))
+            {
+                await DisplayAlert("Erro", "Preencha todos os campos", "OK");
+                return;
+            }
+
+            if (senha != confirmarSenha)
+            {
+                await DisplayAlert("Erro", "Senhas não conferem", "OK");
+                return;
+            }
+
+            
+
+            //Criar objeto
+            var usuario = new Usuario
+            {
+                Nome = nome,
+                Email = email,
+                Senha = senha
+            };
+
+            //Salvar no banco
+            await _usuarioService.InsertAsync(usuario);
+
+            await DisplayAlert("Sucesso", "Usuário cadastrado!", "OK");
+
+            //Limpar campos
+            NomeCompletoEntry.Text = "";
+            EmailEntry.Text = "";
+            SenhaEntry.Text = "";
+            ConfirmarSenhaEntry.Text = "";
+
+            //Voltar para login (opcional)
+            await Shell.Current.GoToAsync("//LoginPage");
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+
 }

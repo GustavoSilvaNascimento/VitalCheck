@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using VitalCheck.Data.SqLite;
+using VitalCheck.Services;
 
 namespace VitalCheck
 {
@@ -7,6 +9,11 @@ namespace VitalCheck
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "vitalcheck.db3");
+
+            builder.Services.AddSingleton(new SqLiteDataBase(dbPath));
+
+            builder.Services.AddSingleton<UsuarioService>();
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>

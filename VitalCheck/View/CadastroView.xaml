@@ -17,13 +17,13 @@
 
                 </StackLayout>
                 <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Entry Placeholder="Nome Completo" WidthRequest="250" Margin="0,10"/>
-                    <Entry Placeholder="Email" WidthRequest="250" Margin="0,10"/>
-                    <Entry Placeholder="Senha" IsPassword="True" WidthRequest="250" Margin="0,10"/>
-                    <Entry Placeholder="Confirmar Senha" IsPassword="True" WidthRequest="250" Margin="0,10"/>
+                    <Entry x:Name="NomeCompletoEntry" Placeholder="Nome Completo" WidthRequest="250" Margin="0,10"/>
+                    <Entry x:Name="EmailEntry" Placeholder="Email" WidthRequest="250" Margin="0,10"/>
+                    <Entry x:Name="SenhaEntry" Placeholder="Senha" IsPassword="True" WidthRequest="250" Margin="0,10"/>
+                    <Entry x:Name="ConfirmarSenhaEntry" Placeholder="Confirmar Senha" IsPassword="True" WidthRequest="250" Margin="0,10"/>
                 </StackLayout>
                 <VerticalStackLayout Grid.Row="2" Spacing="8" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Button Text="Cadastrar" BackgroundColor="{StaticResource Saude4}" TextColor="White" WidthRequest="120" Margin="0,4"/>
+                    <Button Text="Cadastrar" BackgroundColor="{StaticResource Saude4}" TextColor="White" WidthRequest="120" Margin="0,4" Clicked="OnCadastrarClicked"/>
                     <Label Text="Já tem uma conta?" FontSize="10" HorizontalOptions="Center" Margin="0,4"/>
                     <Button Text="Login" BackgroundColor="{StaticResource Saude2}" TextColor="{StaticResource Saude1}" WidthRequest="120" Clicked="OnLoginClicked" Margin="0,4"/>
                 </VerticalStackLayout>
