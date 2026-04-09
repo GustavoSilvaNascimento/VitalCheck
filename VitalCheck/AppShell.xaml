@@ -11,9 +11,5 @@
         
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    <ShellContent
-        Title="Login" 
-        ContentTemplate="{DataTemplate views:LoginView}" 
-        Route="LoginView" />
 
 </Shell>
