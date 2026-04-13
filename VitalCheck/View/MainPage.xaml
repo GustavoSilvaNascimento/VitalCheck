@@ -1,46 +1,65 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="VitalCheck.MainPage"
+    BackgroundColor="{StaticResource Saude1 }">
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VitalCheck.MainPage"
-             >
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="240"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="mainpageimg.png" 
-                       HeightRequest="240" 
-                       VerticalOptions="Center" 
-                       HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                <Label Text="Bem-Vindo ao seu rastreador de saude pessoal"
-                      TextColor="{StaticResource Saude4}"
-                       FontSize="24" 
-                       FontAttributes="Bold" 
-                       HorizontalOptions="Center" 
-                       VerticalOptions="Center"/>
-            </StackLayout>
-            <HorizontalStackLayout Grid.Row="2" HorizontalOptions="End"  VerticalOptions="Center" Padding="10">
-                
-                <ImageButton Source="seta_direita_figma.png"
-                             WidthRequest="45"
-                             HeightRequest="45"
-                             CornerRadius="90"
-                             Padding="8"
-                             Aspect="AspectFit"
-                             BackgroundColor="{StaticResource Saude4}"
-                             HorizontalOptions="End"
-                             VerticalOptions="Center"
-                             Margin="0,0,16,0"
-                             Clicked="OnSetaClicked"
-                              />
-            </HorizontalStackLayout>
-        </Grid>
-    </ScrollView>
+    <Grid>
+
+        <!-- Conteúdo rolável -->
+        <ScrollView>
+            <VerticalStackLayout VerticalOptions="Center">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="260" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Imagem -->
+                    <StackLayout 
+                        Grid.Row="0" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center">
+
+                        <Image 
+                            Source="mainpageimg.png"
+                            HeightRequest="240" />
+                    </StackLayout>
+
+                    <!-- Texto -->
+                    <StackLayout 
+                        Grid.Row="1" 
+                        HorizontalOptions="Center">
+
+                        <Label 
+                            Text="Bem-Vindo ao seu rastreador de saude pessoal"
+                            TextColor="{StaticResource Saude4}"
+                            FontSize="24"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Margin="10,5,10,0" />
+                    </StackLayout>
+
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Botão flutuante -->
+        <ImageButton 
+            Source="seta_direita_figma.png"
+            WidthRequest="45"
+            HeightRequest="45"
+            CornerRadius="90"
+            Aspect="AspectFit"
+            BackgroundColor="{StaticResource Saude4}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="16"
+            Clicked="OnSetaClicked" />
+
+    </Grid>
 
 </ContentPage>

@@ -1,33 +1,138 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VitalCheck.View.CadastroView"
-             >
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="VitalCheck.View.CadastroView">
+
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center">
+
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="240"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <StackLayout Grid.Row="0" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label Text="Bem-Vindo" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"/>
-                    <Label Text="Por favor, insira seus dados:" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                <!-- Título -->
+                <StackLayout 
+                    Grid.Row="0" 
+                    Orientation="Vertical" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center">
+
+                    <Label 
+                        Text="Bem-Vindo" 
+                        FontSize="24" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Start" />
+
+                    <Label 
+                        Text="Por favor, insira seus dados:" 
+                        FontSize="10" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" />
 
                 </StackLayout>
-                <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Entry x:Name="NomeCompletoEntry" Placeholder="Nome Completo" WidthRequest="250" Margin="0,10"/>
-                    <Entry x:Name="EmailEntry" Placeholder="Email" WidthRequest="250" Margin="0,10"/>
-                    <Entry x:Name="SenhaEntry" Placeholder="Senha" IsPassword="True" WidthRequest="250" Margin="0,10"/>
-                    <Entry x:Name="ConfirmarSenhaEntry" Placeholder="Confirmar Senha" IsPassword="True" WidthRequest="250" Margin="0,10"/>
+
+                <!-- Formulário -->
+                <StackLayout 
+                    Grid.Row="1" 
+                    Orientation="Vertical" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center">
+
+                    <Label 
+                        Text="Nome:" 
+                        FontSize="12" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="Start" 
+                        Margin="0,2" />
+
+                    <Entry 
+                        x:Name="NomeCompletoEntry" 
+                        Placeholder="Nome Completo" 
+                        WidthRequest="250" 
+                        Margin="0,2" />
+
+                    <Label 
+                        Text="Email:" 
+                        FontSize="12" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="Start" 
+                        Margin="0,2" />
+
+                    <Entry 
+                        x:Name="EmailEntry" 
+                        Placeholder="Email" 
+                        WidthRequest="250" 
+                        Margin="0,2" />
+
+                    <Label 
+                        Text="Senha:" 
+                        FontSize="12" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="Start" 
+                        Margin="0,2" />
+
+                    <Entry 
+                        x:Name="SenhaEntry" 
+                        Placeholder="Senha" 
+                        IsPassword="True" 
+                        WidthRequest="250" 
+                        Margin="0,2" />
+
+                    <Label 
+                        Text="Confirmar Senha:" 
+                        FontSize="12" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="Start" 
+                        Margin="0,2" />
+
+                    <Entry 
+                        x:Name="ConfirmarSenhaEntry" 
+                        Placeholder="Confirmar Senha" 
+                        IsPassword="True" 
+                        WidthRequest="250" 
+                        Margin="0,2" />
+
                 </StackLayout>
-                <VerticalStackLayout Grid.Row="2" Spacing="8" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Button Text="Cadastrar" BackgroundColor="{StaticResource Saude4}" TextColor="White" WidthRequest="120" Margin="0,4" Clicked="OnCadastrarClicked"/>
-                    <Label Text="Já tem uma conta?" FontSize="10" HorizontalOptions="Center" Margin="0,4"/>
-                    <Button Text="Login" BackgroundColor="{StaticResource Saude2}" TextColor="{StaticResource Saude1}" WidthRequest="120" Clicked="OnLoginClicked" Margin="0,4"/>
+
+                <!-- Botões -->
+                <VerticalStackLayout 
+                    Grid.Row="2" 
+                    Spacing="8" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center">
+
+                    <Button 
+                        Text="Cadastrar" 
+                        BackgroundColor="{StaticResource Saude4}" 
+                        TextColor="White" 
+                        WidthRequest="120" 
+                        Margin="0,10,0,0" 
+                        Clicked="OnCadastrarClicked" />
+
+                    <Label 
+                        Text="Já tem uma conta?" 
+                        FontSize="10" 
+                        HorizontalOptions="Center" 
+                        Margin="0,2" />
+
+                    <Button 
+                        Text="Login" 
+                        BackgroundColor="{StaticResource Saude2}" 
+                        TextColor="{StaticResource Saude1}" 
+                        WidthRequest="120" 
+                        Clicked="OnLoginClicked" 
+                        Margin="0,4" />
+
                 </VerticalStackLayout>
+
             </Grid>
+
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>
