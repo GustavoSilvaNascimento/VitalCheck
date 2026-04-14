@@ -20,6 +20,9 @@ namespace VitalCheck
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("DMSans-Medium.ttf", "DMSans");
+                    fonts.AddFont("DMSans-Bold.ttf", "DMSansBold");
+                    fonts.AddFont("DMSans-SemiBold.ttf", "DMSansSemiBold");
                 });
 
 #if DEBUG

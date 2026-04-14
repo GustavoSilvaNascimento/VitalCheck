@@ -9,7 +9,7 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
@@ -19,18 +19,22 @@
                     Grid.Row="0" 
                     Orientation="Vertical" 
                     HorizontalOptions="Center" 
-                    VerticalOptions="Center">
+                    VerticalOptions="End"
+                    Margin="0,0,0,60">
 
                     <Label 
-                        Text="Bem-Vindo" 
-                        FontSize="24" 
+                        Text="Bem-vindo!"
+                        FontFamily="DMSans"
+                        TextColor="{StaticResource Saude4}"
+                        FontSize="30" 
                         FontAttributes="Bold" 
                         HorizontalOptions="Center" 
                         VerticalOptions="Start" />
 
                     <Label 
                         Text="Por favor, insira seus dados:" 
-                        FontSize="10" 
+                        FontSize="13"
+                        FontFamily="DMSans"
                         HorizontalOptions="Center" 
                         VerticalOptions="Center" />
 
@@ -41,60 +45,69 @@
                     Grid.Row="1" 
                     Orientation="Vertical" 
                     HorizontalOptions="Center" 
-                    VerticalOptions="Center">
+                    VerticalOptions="End"
+                    Margin="0,0,0,30">
 
                     <Label 
-                        Text="Nome:" 
-                        FontSize="12" 
-                        FontAttributes="Bold" 
+                        Text="Nome"
+                        FontFamily="DMSans"
+                        FontSize="13" 
+                        TextColor="{StaticResource Saude4}"
                         HorizontalOptions="Start" 
                         Margin="0,2" />
 
                     <Entry 
                         x:Name="NomeCompletoEntry" 
-                        Placeholder="Nome Completo" 
+                        Placeholder="ex: José da Silva" 
+                        FontFamily="DMSans"
                         WidthRequest="250" 
-                        Margin="0,2" />
+                        Margin="0,6" />
 
                     <Label 
-                        Text="Email:" 
-                        FontSize="12" 
-                        FontAttributes="Bold" 
+                        Text="Email"
+                        FontFamily="DMSans"
+                        FontSize="13" 
+                        TextColor="{StaticResource Saude4}"
                         HorizontalOptions="Start" 
-                        Margin="0,2" />
+                        Margin="0,6" />
 
                     <Entry 
                         x:Name="EmailEntry" 
-                        Placeholder="Email" 
+                        Placeholder="exemplo@gmail.com" 
                         WidthRequest="250" 
-                        Margin="0,2" />
+                        FontFamily="DMSans"
+                        Margin="0,6" />
 
                     <Label 
-                        Text="Senha:" 
-                        FontSize="12" 
-                        FontAttributes="Bold" 
+                        Text="Senha"
+                        FontFamily="DMSans"
+                        FontSize="13"
+                        TextColor="{StaticResource Saude4}"
                         HorizontalOptions="Start" 
-                        Margin="0,2" />
+                        Margin="0,6" />
 
                     <Entry 
                         x:Name="SenhaEntry" 
-                        Placeholder="Senha" 
+                        Placeholder="Mínimo de 8 caracteres" 
                         IsPassword="True" 
-                        WidthRequest="250" 
-                        Margin="0,2" />
+                        WidthRequest="250"
+                        FontFamily="DMSans"
+                        Margin="0,6" />
 
                     <Label 
-                        Text="Confirmar Senha:" 
-                        FontSize="12" 
-                        FontAttributes="Bold" 
+                        Text="Confirmar senha"
+                        FontFamily="DMSans"
+                        FontSize="13" 
+                        TextColor="{StaticResource Saude4}"
                         HorizontalOptions="Start" 
-                        Margin="0,2" />
+                        Margin="0,6" />
 
                     <Entry 
                         x:Name="ConfirmarSenhaEntry" 
-                        Placeholder="Confirmar Senha" 
+                        Placeholder="Repita sua senha" 
                         IsPassword="True" 
                         WidthRequest="250" 
+                        FontFamily="DMSans"
                         Margin="0,2" />
 
                 </StackLayout>
@@ -109,13 +122,15 @@
                     <Button 
                         Text="Cadastrar" 
                         BackgroundColor="{StaticResource Saude4}" 
-                        TextColor="White" 
-                        WidthRequest="120" 
-                        Margin="0,10,0,0" 
+                        TextColor="White"
+                        FontFamily="DMSans"
+                        WidthRequest="210"
+                        CornerRadius="20"
+                        Margin="0,10,0,6" 
                         Clicked="OnCadastrarClicked" />
 
                     <Label 
-                        Text="Já tem uma conta?" 
+                        Text="Você já tem uma conta?" 
                         FontSize="10" 
                         HorizontalOptions="Center" 
                         Margin="0,2" />
@@ -124,7 +139,9 @@
                         Text="Login" 
                         BackgroundColor="{StaticResource Saude2}" 
                         TextColor="{StaticResource Saude1}" 
-                        WidthRequest="120" 
+                        FontFamily="DMSans"
+                        WidthRequest="210"
+                        CornerRadius="20"
                         Clicked="OnLoginClicked" 
                         Margin="0,4" />
 
