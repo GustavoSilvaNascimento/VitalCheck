@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitalCheck.View.PesoGenero">
+
+    <Grid>
+        <ScrollView>
+
+            <VerticalStackLayout Padding="30,60,30,100" Spacing="0">
+
+                <Label Text="Forneça-nos algumas &#10;informações básicas."
+                       FontFamily="DMSans"
+                       TextColor="{StaticResource Saude4}"
+                       FontSize="28"
+                       LineHeight="1.1"
+                       HorizontalOptions="Start"
+                       Margin="0,0,0,40" />
+                
+                <!-- Cards de Gênero -->
+                <Grid ColumnDefinitions="*, *" ColumnSpacing="20" Margin="0,0,0,40">
+                    
+                    <!-- Homem -->
+                    <VerticalStackLayout Grid.Column="0" Spacing="10">
+                        <Border Stroke="{StaticResource Saude4}"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 20"
+                                HeightRequest="140"
+                                Padding="10">
+                            <Grid>
+                                <Image Source="homem.png" HorizontalOptions="Center" VerticalOptions="Start"
+                                       WidthRequest="100" HeightRequest="100" Margin="5"/>
+                            </Grid>
+
+                        </Border>
+                        <Label Text="Homem" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"
+                                   FontFamily="DMSans"/>
+                    </VerticalStackLayout>
+                    
+                    <!-- Mulher -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="10">
+                        <Border Stroke="{StaticResource Saude4}"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 20"
+                                HeightRequest="140"
+                                Padding="10">
+                            <Grid>
+                                <Image Source="mulher.png" HorizontalOptions="Center" VerticalOptions="Start" 
+                                       WidthRequest="100"  HeightRequest="100" Margin="5"
+                                       />
+                            </Grid>
+                        </Border>
+                        <Label Text="Mulher" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"
+                               FontFamily="DMSans"/>
+                    </VerticalStackLayout>
+                    
+                </Grid>
+                
+                <!-- Seletores de altura e peso -->
+                <VerticalStackLayout Margin="0,0,0,40">
+                    <Label Text="Altura" FontFamily="DMSans" FontSize="18"
+                           TextColor="{StaticResource Saude4}" Margin="0,0,0,15"/>
+
+                    <Label Text="{Binding Source={x:Reference AlturaSlider}, Path=Value, StringFormat='{0:F0}cm'}"
+                           FontFamily="DMSans" FontSize="16" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"/>
+
+                    <Grid ColumnDefinitions="Auto, *, auto" ColumnSpacing="15" VerticalOptions="Center">
+                        <Image Grid.Column="0" Source="homem_alto_baixo.png" WidthRequest="10" VerticalOptions="Start"/>
+                        <Slider x:Name="AlturaSlider" Grid.Column="1" Minimum="50" Maximum="250" Value="180"
+                                MinimumTrackColor="{StaticResource Saude4}" MaximumTrackColor="{StaticResource Saude4}"/>
+                        <Image Grid.Column="2" Source="homem_alto_baixo.png" WidthRequest="20" Margin="0,-20"  VerticalOptions="Start"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="Auto, *, auto" Margin="0,5,0,0">
+                        <Label Grid.Column="0" Text="50cm" FontSize="12" TextColor="{StaticResource Saude4}" FontFamily="DMSans"/>
+                        <Label Grid.Column="2" Text="250cm" FontSize="12" TextColor="{StaticResource Saude4}" FontFamily="DMSans"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Margin="0,0,0,40">
+                    <Label Text="Peso" FontFamily="DMSans" FontSize="18"
+                           TextColor="{StaticResource Saude4}" Margin="0,0,0,15"/>
+
+                    <Label Text="{Binding Source={x:Reference PesoSlider}, Path=Value, StringFormat='{0:F0}kg'}"
+                           FontFamily="DMSans" FontSize="16" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"/>
+
+                    <Grid ColumnDefinitions="Auto, *, auto" ColumnSpacing="15" VerticalOptions="Center">
+                        <Image Grid.Column="0" Source="homem_magro.png" WidthRequest="15" VerticalOptions="Start"/>
+                        <Slider x:Name="PesoSlider" Grid.Column="1" Minimum="20" Maximum="500" Value="70"
+                                MinimumTrackColor="{StaticResource Saude4}" MaximumTrackColor="{StaticResource Saude4}"/>
+                        <Image Grid.Column="2" Source="homem_gordo1.png" WidthRequest="20" VerticalOptions="Center"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="Auto, *, auto" Margin="0,5,0,0">
+                        <Label Grid.Column="0" Text="20kg" FontSize="12" TextColor="{StaticResource Saude4}" FontFamily="DMSans"/>
+                        <Label Grid.Column="2" Text="500kg" FontSize="12" TextColor="{StaticResource Saude4}" FontFamily="DMSans"/>
+                    </Grid>
+                </VerticalStackLayout>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ImageButton 
+            Source="seta_direita_figma.png"
+            WidthRequest="60"
+            HeightRequest="60"
+            CornerRadius="30"
+            Aspect="AspectFit"
+            BackgroundColor="{StaticResource Saude4}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="30"
+            Clicked="ImageButton_Clicked_1"/>
+    </Grid>
+</ContentPage>

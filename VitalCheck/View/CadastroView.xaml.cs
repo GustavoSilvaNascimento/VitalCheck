@@ -66,12 +66,11 @@ public partial class CadastroView : ContentPage
             SenhaEntry.Text = "";
             ConfirmarSenhaEntry.Text = "";
 
-            //Voltar para login (opcional)
-            await Shell.Current.GoToAsync("//LoginPage");
+            await Shell.Current.GoToAsync("pesogenero");
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-
+            await DisplayAlert("Erro na Navegação", ex.Message, "OK");
         }
     }
 

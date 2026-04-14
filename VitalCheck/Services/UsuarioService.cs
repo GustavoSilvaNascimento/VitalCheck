@@ -8,5 +8,12 @@ namespace VitalCheck.Services
     {
         public UsuarioService(SqLiteDataBase database) : base(database) { 
         } 
+
+        public async Task<Usuario> GetByEmailAndSenhaAsync(string email, string senha)
+        {
+            var todosUsuarios = await GetAllAsync();
+
+            return todosUsuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
     }
 }
