@@ -12,6 +12,7 @@ namespace VitalCheck
             Routing.RegisterRoute("cadastro", typeof(CadastroView));
             Routing.RegisterRoute("pesogenero", typeof(PesoGenero));
             Routing.RegisterRoute("dashboard", typeof(DashboardView));
+            Routing.RegisterRoute("idade", typeof(IdadeView));
         }
     }
 }

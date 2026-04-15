@@ -24,10 +24,9 @@
 
                     <Label 
                         Text="Bem-vindo!"
-                        FontFamily="DMSans"
+                        FontFamily="DMSansBold"
                         TextColor="{StaticResource Saude4}"
                         FontSize="30" 
-                        FontAttributes="Bold" 
                         HorizontalOptions="Center" 
                         VerticalOptions="Start" />
 

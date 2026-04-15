@@ -21,8 +21,7 @@
                 <Label 
                     Text=" Bem-vindo ao&#10; seu rastreador de&#10; saude pessoal"
                     TextColor="{StaticResource Saude4}"
-                    FontFamily="DMSans"
-                    FontAttributes="Bold"
+                    FontFamily="DMSansBold"
                     FontSize="29"
                     LineHeight="1.1"
                     HorizontalOptions="Start"

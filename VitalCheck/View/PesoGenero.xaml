@@ -4,9 +4,7 @@
              x:Class="VitalCheck.View.PesoGenero">
 
     <Grid>
-        <ScrollView>
-
-            <VerticalStackLayout Padding="30,60,30,100" Spacing="0">
+        <VerticalStackLayout Padding="30,20,30,100" Spacing="0">
 
                 <Label Text="Forneça-nos algumas &#10;informações básicas."
                        FontFamily="DMSans"
@@ -15,10 +13,10 @@
                        LineHeight="1.1"
                        HorizontalOptions="Start"
                        Margin="0,0,0,40" />
-                
+
                 <!-- Cards de Gênero -->
                 <Grid ColumnDefinitions="*, *" ColumnSpacing="20" Margin="0,0,0,40">
-                    
+
                     <!-- Homem -->
                     <VerticalStackLayout Grid.Column="0" Spacing="10">
                         <Border Stroke="{StaticResource Saude4}"
@@ -26,8 +24,12 @@
                                 StrokeShape="RoundRectangle 20"
                                 HeightRequest="140"
                                 Padding="10">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Homem"/>
+                        </Border.GestureRecognizers>
                             <Grid>
-                                <Image Source="homem.png" HorizontalOptions="Center" VerticalOptions="Start"
+                            <Image x:Name="check_homem" Source="check.png" IsVisible="True" HorizontalOptions="End" VerticalOptions="Start" WidthRequest="20"/>
+                            <Image Source="homem.png" HorizontalOptions="Center" VerticalOptions="Start"
                                        WidthRequest="100" HeightRequest="100" Margin="5"/>
                             </Grid>
 
@@ -35,7 +37,7 @@
                         <Label Text="Homem" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"
                                    FontFamily="DMSans"/>
                     </VerticalStackLayout>
-                    
+
                     <!-- Mulher -->
                     <VerticalStackLayout Grid.Column="1" Spacing="10">
                         <Border Stroke="{StaticResource Saude4}"
@@ -43,8 +45,13 @@
                                 StrokeShape="RoundRectangle 20"
                                 HeightRequest="140"
                                 Padding="10">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Mulher"/>
+                        </Border.GestureRecognizers>
                             <Grid>
-                                <Image Source="mulher.png" HorizontalOptions="Center" VerticalOptions="Start" 
+                            <Image x:Name="check_mulher" Source="check.png" IsVisible="False" HorizontalOptions="End" VerticalOptions="Start" WidthRequest="20"/>
+                            <Image Source="mulher.png" HorizontalOptions="Center" VerticalOptions="Start" 
                                        WidthRequest="100"  HeightRequest="100" Margin="5"
                                        />
                             </Grid>
@@ -52,9 +59,9 @@
                         <Label Text="Mulher" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"
                                FontFamily="DMSans"/>
                     </VerticalStackLayout>
-                    
+
                 </Grid>
-                
+
                 <!-- Seletores de altura e peso -->
                 <VerticalStackLayout Margin="0,0,0,40">
                     <Label Text="Altura" FontFamily="DMSans" FontSize="18"
@@ -87,7 +94,7 @@
                         <Image Grid.Column="0" Source="homem_magro.png" WidthRequest="15" VerticalOptions="Start"/>
                         <Slider x:Name="PesoSlider" Grid.Column="1" Minimum="20" Maximum="500" Value="70"
                                 MinimumTrackColor="{StaticResource Saude4}" MaximumTrackColor="{StaticResource Saude4}"/>
-                        <Image Grid.Column="2" Source="homem_gordo1.png" WidthRequest="20" VerticalOptions="Center"/>
+                        <Image Grid.Column="2" Source="homem_gordo1.png" WidthRequest="30" Margin="0,-10" VerticalOptions="Start"/>
                     </Grid>
 
                     <Grid ColumnDefinitions="Auto, *, auto" Margin="0,5,0,0">
@@ -95,20 +102,19 @@
                         <Label Grid.Column="2" Text="500kg" FontSize="12" TextColor="{StaticResource Saude4}" FontFamily="DMSans"/>
                     </Grid>
                 </VerticalStackLayout>
-                
-            </VerticalStackLayout>
-        </ScrollView>
 
-        <ImageButton 
-            Source="seta_direita_figma.png"
-            WidthRequest="60"
-            HeightRequest="60"
-            CornerRadius="30"
-            Aspect="AspectFit"
-            BackgroundColor="{StaticResource Saude4}"
-            HorizontalOptions="End"
-            VerticalOptions="End"
-            Margin="30"
-            Clicked="ImageButton_Clicked_1"/>
+            </VerticalStackLayout>
+
+            <ImageButton 
+                Source="seta_direita_figma.png"
+                WidthRequest="30"
+                HeightRequest="30"
+                CornerRadius="30"
+                Aspect="AspectFit"
+                BackgroundColor="{StaticResource Saude4}"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="30"
+                Clicked="ImageButton_Clicked_1"/>
     </Grid>
 </ContentPage>
