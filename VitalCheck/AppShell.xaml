@@ -10,14 +10,36 @@
     <ShellContent
         
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        Shell.FlyoutItemIsVisible="False"
+        Shell.TabBarIsVisible="False"/>
 
     <TabBar>
         <Tab Title="Início"
-             Icon="appicon.png">
-            <ShellContent Route="dashboard"
+             Icon="botao_home.png">
+            <ShellContent Route="dashboard_home"
                           ContentTemplate="{DataTemplate views:DashboardView}"/>
         </Tab>
+        
+        <!--Alterar as views depois-->
+        <Tab Title="Alimentação"
+             Icon="botao_alimentacao.png">
+            <ShellContent Route="dashboard_alimentacao"
+                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+        </Tab>
+
+        <Tab Title="Treino"
+             Icon="botao_treino.png">
+            <ShellContent Route="dashboard_treino"
+                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+        </Tab>
+
+        <Tab Title="Sono"
+             Icon="botao_sono.png">
+            <ShellContent Route="dashboard_sono"
+                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+        </Tab>
+        
         
     </TabBar>
 

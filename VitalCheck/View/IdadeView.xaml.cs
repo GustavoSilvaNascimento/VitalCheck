@@ -7,10 +7,11 @@ public partial class IdadeView : ContentPage
 		InitializeComponent();
 	}
 
-    private async void ImageButton_Clicked(object sender, EventArgs e)
-    {
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+	{
 		//Adicionar logica do Banco de Dados
 
-		await Shell.Current.GoToAsync("//dashboard");
-    }
+		// Navegar para a aba principal (rota única definida em AppShell.xaml)
+		await Shell.Current.GoToAsync("//dashboard_home");
+	}
 }
