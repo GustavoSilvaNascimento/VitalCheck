@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 using VitalCheck.Data.SqLite;
 using VitalCheck.Services;
 
@@ -16,6 +17,7 @@ namespace VitalCheck
             builder.Services.AddSingleton<UsuarioService>();
             builder
                 .UseMauiApp<App>()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

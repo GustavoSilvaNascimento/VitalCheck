@@ -31,7 +31,7 @@ public partial class LoginView : ContentPage
 
             if(usuarioLogado != null)
             {
-                await Shell.Current.GoToAsync("dashboard");
+                await Shell.Current.GoToAsync("//dashboard");
             } else
             {
                 await DisplayAlert("Erro", "Login ou senha incorretos.", "Ok");

@@ -12,4 +12,13 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <TabBar>
+        <Tab Title="Início"
+             Icon="appicon.png">
+            <ShellContent Route="dashboard"
+                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+        </Tab>
+        
+    </TabBar>
+
 </Shell>

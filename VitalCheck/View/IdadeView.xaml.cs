@@ -11,6 +11,6 @@ public partial class IdadeView : ContentPage
     {
 		//Adicionar logica do Banco de Dados
 
-		await Shell.Current.GoToAsync("dashboard");
+		await Shell.Current.GoToAsync("//dashboard");
     }
 }
