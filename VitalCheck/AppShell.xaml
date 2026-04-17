@@ -25,19 +25,20 @@
         <Tab Title="Alimentação"
              Icon="botao_alimentacao.png">
             <ShellContent Route="dashboard_alimentacao"
-                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+                          ContentTemplate="{DataTemplate views:AlimentacaoView}"
+                          Shell.TabBarIsVisible="False"/>
         </Tab>
 
         <Tab Title="Treino"
              Icon="botao_treino.png">
             <ShellContent Route="dashboard_treino"
-                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+                          ContentTemplate="{DataTemplate views:TreinoView}"/>
         </Tab>
 
         <Tab Title="Sono"
              Icon="botao_sono.png">
             <ShellContent Route="dashboard_sono"
-                          ContentTemplate="{DataTemplate views:DashboardView}"/>
+                          ContentTemplate="{DataTemplate views:SonoView}"/>
         </Tab>
         
         

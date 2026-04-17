@@ -4,7 +4,7 @@
              x:Class="VitalCheck.View.PesoGenero">
 
     <Grid>
-        <VerticalStackLayout Padding="30,20,30,100" Spacing="0">
+        <VerticalStackLayout Padding="30,0,30,100" Spacing="0">
 
                 <Label Text="Forneça-nos algumas &#10;informações básicas."
                        FontFamily="DMSans"

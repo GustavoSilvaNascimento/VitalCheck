@@ -85,7 +85,10 @@
                    TextColor="{StaticResource Saude4}"
                    FontSize="25"
                    HorizontalOptions="Start"/>
+                
+                <!--Informações do último check-in-->
             </Grid>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
