@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VitalCheck.model.DataBases;
 
 namespace VitalCheck.Model
 {
-    public class CheckIn : BaseSQLiteModel
+    internal class CheckIn
     {
         public CheckIn()
         {

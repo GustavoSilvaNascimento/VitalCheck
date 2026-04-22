@@ -1,21 +1,19 @@
-﻿        
-using VitalCheck.Services.Navigation;
-
-namespace VitalCheck;
+﻿namespace VitalCheck;
+using VitalCheck.Data.SqLite;
 
     public partial class App : Application
     {
-        private readonly INavigationService _navigationService;
-
-        public App(INavigationService navigationService)
+        public App(SqLiteDataBase database)
         {
+            
             InitializeComponent();
-            _navigationService = navigationService;
-        }
+            Task.Run(async () => await database.InitAsync());
+
+    }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell(_navigationService));
+            return new Window(new AppShell());
+            
         }
     }
-
