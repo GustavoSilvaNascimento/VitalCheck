@@ -1,13 +1,13 @@
-using VitalCheck.Model;
-using VitalCheck.Services;
+using VitalCheck.Model.Response;
+using VitalCheck.Services.Users;
 
 namespace VitalCheck.View;
 
 public partial class LoginView : ContentPage
 {
 
-    private readonly UsuarioService _usuarioService;
-	public LoginView(UsuarioService usuarioService)
+    private readonly UserService _usuarioService;
+	public LoginView(UserService usuarioService)
 	{
 		InitializeComponent();
         _usuarioService = usuarioService;

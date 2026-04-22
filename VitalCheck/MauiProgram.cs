@@ -1,7 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
-using VitalCheck.Data.SqLite;
-using VitalCheck.Services;
+using VitalCheck.Services.DataBase.Create;
+using VitalCheck.Services.Navigation;
+using VitalCheck.Services.Settings;
+using VitalCheck.Services.Users;
+using VitalCheck.View;
+
+
 
 namespace VitalCheck
 {
@@ -10,11 +15,6 @@ namespace VitalCheck
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "vitalcheck.db3");
-
-            builder.Services.AddSingleton(new SqLiteDataBase(dbPath));
-
-            builder.Services.AddSingleton<UsuarioService>();
             builder
                 .UseMauiApp<App>()
                 .UseSkiaSharp()
@@ -25,13 +25,43 @@ namespace VitalCheck
                     fonts.AddFont("DMSans-Medium.ttf", "DMSans");
                     fonts.AddFont("DMSans-Bold.ttf", "DMSansBold");
                     fonts.AddFont("DMSans-SemiBold.ttf", "DMSansSemiBold");
-                });
+                }).RegisterViewModels()
+                .RegisterAppServices()
+                .RegisterView(); ;
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
+        }
+        public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder builder)
+        {
+
+            return builder;
+        }
+        public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<INavigationService, NavigationService>();
+            builder.Services.AddSingleton<IUserService, UserService>();
+            builder.Services.AddSingleton<ISettingsService, SettingsService>();
+            builder.Services.AddSingleton<IDataBaseService, DataBaseService>();
+            return builder;
+        }
+        public static MauiAppBuilder RegisterView(this MauiAppBuilder builder)
+        {
+            builder.Services.AddTransient<LoginView>();
+            builder.Services.AddTransient<DashboardView>();
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<AlimentacaoView>();
+            builder.Services.AddTransient<CadastroView>();
+            builder.Services.AddTransient<IdadeView>();
+            builder.Services.AddTransient<SonoView>();
+            builder.Services.AddTransient<TreinoView>();
+            builder.Services.AddTransient<PesoGenero>();
+
+
+            return builder;
         }
     }
 }
