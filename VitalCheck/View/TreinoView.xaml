@@ -1,12 +1,69 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VitalCheck.View.TreinoView"
-             Title="TreinoView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="VitalCheck.View.TreinoView">
+    <!-- Agrupei os elementos filhos em um Grid para evitar definir 'Content' mais de uma vez -->
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="30,20,30,100" Spacing="0">
+
+                <Grid RowDefinitions="auto">
+                    <ImageButton Grid.Row="0"
+                                 Source="left.png"
+                                 WidthRequest="25"
+                                 HeightRequest="25"
+                                 Aspect="AspectFill"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="Start"
+                                 Margin="0,10"
+                                 Clicked="ImageButton_Clicked"/>
+
+                    <Label Grid.Row="0"
+                       Text="Seu treino"
+                       FontFamily="DMSansSemiBold"
+                       TextColor="{StaticResource Saude4}"
+                       FontSize="20"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Margin="0,70"/>
+                    
+                    <!--Adicionar lógica do banco de dados-->
+              
+                </Grid>
+
+                <Grid RowDefinitions="auto" ColumnSpacing="20" Margin="0,-40,0,40">
+                    <VerticalStackLayout Grid.Column="0" Spacing="10">
+
+                        <Border Stroke="{StaticResource Saude4}"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 20"
+                                HeightRequest="140"
+                                Padding="10">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Image Source="botao_treino.png" HorizontalOptions="Center" VerticalOptions="Start"
+                                WidthRequest="100" HeightRequest="100" Margin="5"/>
+                            </Grid>
+                        </Border>
+                        <Label Text="Treino A" FontFamily="DMSans" FontSize="17" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    
+                    
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+        <!--Adicionar logica de conseguir ao apertar no botao adicionar colocar mais um Border desses ai d cima-->
+        <ImageButton Source="botao_adicionar.png"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    CornerRadius="30"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Margin="0, 30"
+                     Clicked="ImageButton_Clicked_1"/>
+    </Grid>
 </ContentPage>

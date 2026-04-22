@@ -32,13 +32,15 @@
         <Tab Title="Treino"
              Icon="botao_treino.png">
             <ShellContent Route="dashboard_treino"
-                          ContentTemplate="{DataTemplate views:TreinoView}"/>
+                          ContentTemplate="{DataTemplate views:TreinoView}"
+                          Shell.TabBarIsVisible="False"/>
         </Tab>
 
         <Tab Title="Sono"
              Icon="botao_sono.png">
             <ShellContent Route="dashboard_sono"
-                          ContentTemplate="{DataTemplate views:SonoView}"/>
+                          ContentTemplate="{DataTemplate views:SonoView}"
+                          Shell.TabBarIsVisible="False"/>
         </Tab>
         
         

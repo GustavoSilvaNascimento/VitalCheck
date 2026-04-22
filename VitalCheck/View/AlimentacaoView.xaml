@@ -9,8 +9,8 @@
             <Grid RowDefinitions="auto">
                 <ImageButton Grid.Row="0"
                              Source="left.png"
-                             WidthRequest="25"
-                             HeightRequest="25"
+                             WidthRequest="15"
+                             HeightRequest="15"
                              Aspect="AspectFill"
                              HorizontalOptions="Start"
                              VerticalOptions="Start"
