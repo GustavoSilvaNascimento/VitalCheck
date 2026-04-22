@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VitalCheck.model.DataBases;
 
-namespace VitalCheck.Model
+namespace VitalCheck.model.Response
 {
-    public class Usuario
+    public class Usuario : BaseSQLiteModel
         {
         public Usuario() { }
         public int Id { get; set; }
@@ -30,5 +31,7 @@ namespace VitalCheck.Model
                 return idade;
             }
         }
+
+        public string UserName { get; internal set; }
     }
 }
