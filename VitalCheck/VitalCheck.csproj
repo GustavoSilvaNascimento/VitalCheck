@@ -69,31 +69,35 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="View\auth\LoginView.xaml.cs">
+	  <Folder Include="model\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="View\LoginView.xaml.cs">
 	    <DependentUpon>LoginView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\auth\CadastroView.xaml.cs">
+	  <Compile Update="View\CadastroView.xaml.cs">
 	    <DependentUpon>CadastroView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\auth\AlimentacaoView.xaml">
+	  <MauiXaml Update="View\AlimentacaoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\DashboardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\auth\IdadeView.xaml">
+	  <MauiXaml Update="View\IdadeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\auth\LoginView.xaml">
+	  <MauiXaml Update="View\LoginView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\auth\CadastroView.xaml">
+	  <MauiXaml Update="View\CadastroView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\auth\PesoGenero.xaml">
+	  <MauiXaml Update="View\PesoGenero.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\SonoView.xaml">

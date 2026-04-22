@@ -1,16 +1,15 @@
-using VitalCheck.model.Response;
+using VitalCheck.Model;
 using VitalCheck.Services;
-using VitalCheck.Services.Users;
 
-namespace VitalCheck.View.auth;
+namespace VitalCheck.View;
 
 public partial class LoginView : ContentPage
 {
 
-    private readonly UserService _usuarioService;
-	public LoginView(UserService usuarioService)
+    private readonly UsuarioService _usuarioService;
+	public LoginView(UsuarioService usuarioService)
 	{
-        InitializeComponent();
+		InitializeComponent();
         _usuarioService = usuarioService;
     }
 	
@@ -32,13 +31,6 @@ public partial class LoginView : ContentPage
 
             if(usuarioLogado != null)
             {
-                UserAuth auth= new UserAuth
-                {
-                    UserName = usuarioLogado.Email,
-                    Password = usuarioLogado.Senha,
-                    ExpiresInMins = 60
-                };
-                UserToken userToken = await _usuarioService.AuthenticateDb(auth, usuarioLogado);
                 await Shell.Current.GoToAsync("//dashboard_home");
             } else
             {
