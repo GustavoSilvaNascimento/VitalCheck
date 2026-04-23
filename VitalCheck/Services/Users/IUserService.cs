@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using VitalCheck.Model.Response;
+﻿using VitalCheck.Model.Response;
 
 namespace VitalCheck.Services.Users
 {

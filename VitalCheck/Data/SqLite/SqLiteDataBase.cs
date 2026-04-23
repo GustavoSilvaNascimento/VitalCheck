@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using VitalCheck.Model;
+using VitalCheck.Model.Response;
 
 namespace VitalCheck.Data.SqLite
 {

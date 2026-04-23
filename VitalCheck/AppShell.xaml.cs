@@ -1,6 +1,6 @@
 ﻿using VitalCheck.Services.Navigation;
 using VitalCheck.View;
-using VitalCheck.View.auth;
+
 
 namespace VitalCheck
 {

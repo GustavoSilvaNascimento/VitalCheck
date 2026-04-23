@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VitalCheck.Model.DataBases;
 
-namespace VitalCheck.Model
+namespace VitalCheck.Model.Response
 {
-    public class Usuario
+    public class Usuario : BaseSQLiteModel
         {
         public Usuario() { }
         public int Id { get; set; }
@@ -17,6 +18,7 @@ namespace VitalCheck.Model
         public DateTime DataNascimento { get; set; }
         public double Peso { get; set; }
         public double Altura { get; set; }
+        public string? UserName { get; set; }
         public int Idade
         {
             get
