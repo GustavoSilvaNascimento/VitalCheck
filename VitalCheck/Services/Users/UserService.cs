@@ -2,36 +2,34 @@
 
 using VitalCheck.Model.Response;
 using VitalCheck.Services.DataBase.Create;
-using VitalCheck.Services.SecurityService;
+using VitalCheck.Services.Security;
 using VitalCheck.Services.Users;
 
 namespace VitalCheck.Services.Users
 {
-    public class UserService(ISecurity security) : DataBaseService, IUserService
+    public class UserService(ISecurityServices security) : DataBaseService, IUserService
     {
 
-        private readonly ISecurity _security = security;
+        private readonly ISecurityServices _security = security;
 
         #region Database
         public async Task<Usuario> AddDb(Usuario user)
         {
             await UserConection.AddAsync(user);
-            return await UserConection.GetAsync(x => x.Id == user.Id);
+            return user;
         }
         public async Task<UserToken> AuthenticateDb(UserAuth auth, Usuario user)
         {
-            bool isValid = await UserConection.GetAsync(x => x.Email == auth.UserName && x.Senha == auth.Password) != null;
-            if (isValid)
-            {
-                var userToken = CreateToken(user).Result;
-                return userToken;
-            }
+            
+            var dbUser = await UserConection.GetAsync(x => x.Email == auth.UserName && x.Senha == auth.Password);
+            if (dbUser != null)
+                return await CreateToken(dbUser);
             return null;
         }
         #endregion
         public async Task<UserToken> CreateToken(Usuario user)
         {
-            var userToken = new UserToken { Token = _security.GenerateToken().Result };
+            var userToken = new UserToken { Token = await _security.GenerateToken() };
             userToken.Id = user.Id;
             userToken.Nome = user.Nome;
             userToken.UserName = user.UserName;

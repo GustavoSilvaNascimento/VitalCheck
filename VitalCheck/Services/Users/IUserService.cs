@@ -7,6 +7,8 @@ namespace VitalCheck.Services.Users
   
         Task<Usuario> AddDb(Usuario user);
         Task<UserToken> AuthenticateDb(UserAuth auth, Usuario user);
+        Task<UserToken> CreateToken(Usuario user);
+        Task<Usuario> GetByEmailAndSenhaAsync(string email, string senha);
 
     }
 }

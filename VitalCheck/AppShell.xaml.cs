@@ -29,14 +29,6 @@ namespace VitalCheck
 
         }
 
-        protected override async void OnHandlerChanged()
-        {
-            base.OnHandlerChanged();
-            if (Handler != null)
-            {
-                await _navigationService.InitializeAsync();
-            }
-
-        }
+       
     }
 }

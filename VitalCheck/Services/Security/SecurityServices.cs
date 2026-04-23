@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace VitalCheck.Services.SecurityService
+namespace VitalCheck.Services.Security
 {
-    public class Security : ISecurity
+    public class SecurityServices : ISecurityServices
     {
         public Task<string> GenerateHash(string senha)
         {

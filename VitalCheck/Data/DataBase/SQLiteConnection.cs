@@ -17,20 +17,13 @@ namespace VitalCheck.Data.DataBase
             if (_connection != null)
                 return;
 
-            _connection = new SQLiteAsyncConnection(GlobalSettings.DatabasePath, GlobalSettings.Flags);
+            _connection = new SQLiteAsyncConnection(
+                GlobalSettings.DatabasePath,
+                GlobalSettings.Flags);
 
-            // Criar tabelas
-            await VerifyTable();
+            await _connection.CreateTableAsync<T>();
         }
-        public async Task VerifyTable()
-        {
 
-            var tableInfo = await _connection.GetTableInfoAsync(typeof(T).Name);
-            if (tableInfo.Count == 0)
-            {
-                await _connection.CreateTableAsync<T>();
-            }
-        }
         //CRUD
         #region CRUD
         public async Task<List<T>> GetAllAsync()

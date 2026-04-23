@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VitalCheck.Services.SecurityService
+namespace VitalCheck.Services.Security
 {
-    public interface ISecurity
+    public interface ISecurityServices
     {
         Task<bool> IsAuthenticated(string senha, string hash);
         Task<string> GenerateHash(string senha);

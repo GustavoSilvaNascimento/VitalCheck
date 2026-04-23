@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,12 +8,12 @@ using VitalCheck.Model.DataBases;
 
 namespace VitalCheck.Model
 {
+    [Table("CheckIns")]
     public class CheckIn : BaseSQLiteModel
     {
         public CheckIn()
         {
         }
-        public int Id { get; set; }
         public int IdUsuario { get; set; }  
         public DateTime Sono { get; set; }
         public DateTime Data { get; set; }

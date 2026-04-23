@@ -1,25 +1,25 @@
-﻿
-using VitalCheck.Data.DataBase;
-using VitalCheck.Model.Response;
+﻿using VitalCheck.Data.DataBase;
 using VitalCheck.Model;
-using VitalCheck.Services.DataBase.Create;
-
+using VitalCheck.Model.Response;
 
 namespace VitalCheck.Services.DataBase.Create
 {
-
     public class DataBaseService : IDataBaseService
     {
+        public SQLiteConnection<Usuario> UserConection { get; } =
+            new SQLiteConnection<Usuario>();
 
-        public SQLiteConnection<Usuario> UserConection = new SQLiteConnection<Usuario>();
-        public SQLiteConnection<CheckIn> CheckInConection = new SQLiteConnection<CheckIn>();
+        public SQLiteConnection<CheckIn> CheckInConection { get; } =
+            new SQLiteConnection<CheckIn>();
 
         public DataBaseService()
         {
+        }
 
-            _ = UserConection.Init();
-            _ = CheckInConection.Init();    
-
+        public async Task InitAsync()
+        {
+            await UserConection.Init();
+            await CheckInConection.Init();
         }
     }
 }

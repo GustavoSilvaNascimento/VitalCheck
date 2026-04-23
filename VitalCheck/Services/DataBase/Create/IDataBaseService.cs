@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace VitalCheck.Services.DataBase.Create
 {
-    internal interface IDataBaseService
+    public interface IDataBaseService
     {
+        Task InitAsync();
     }
 }

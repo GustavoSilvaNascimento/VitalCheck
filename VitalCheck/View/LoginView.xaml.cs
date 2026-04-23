@@ -48,7 +48,7 @@ public partial class LoginView : ContentPage
     {
         try
         {
-            await Shell.Current.GoToAsync("cadastro");
+            await Shell.Current.GoToAsync("Cadastro");
         }
         catch (Exception) {
             

@@ -5,8 +5,8 @@ namespace VitalCheck.View;
 
 public partial class CadastroView : ContentPage
 {
-    private readonly UserService _usuarioService;
-    public CadastroView(UserService usuarioService)
+    private readonly IUserService _usuarioService;
+    public CadastroView(IUserService usuarioService)
     {
         InitializeComponent();
         _usuarioService = usuarioService;
@@ -15,7 +15,7 @@ public partial class CadastroView : ContentPage
      {
         try
         {
-            await Shell.Current.GoToAsync("login");
+            await Shell.Current.GoToAsync("Login");
         }
         catch (Exception)
         {
@@ -56,17 +56,26 @@ public partial class CadastroView : ContentPage
             };
 
             //Salvar no banco
-            await _usuarioService.InsertAsync(usuario);
-
-            await DisplayAlert("Sucesso", "Usuário cadastrado!", "OK");
-
+            Usuario user=await _usuarioService.AddDb(usuario);
+            if (user != null)
+            {
+                await DisplayAlert("Sucesso", $"Usuário {user.Nome} cadastrado com sucesso!", "OK");
+            }
+             else
+            {
+                await DisplayAlert("Erro", "Falha ao cadastrar usuário", "OK");
+                return;
+            }
             //Limpar campos
             NomeCompletoEntry.Text = "";
             EmailEntry.Text = "";
             SenhaEntry.Text = "";
             ConfirmarSenhaEntry.Text = "";
 
-            await Shell.Current.GoToAsync("pesogenero");
+            await Shell.Current.GoToAsync("pesogenero", new Dictionary<string, object>
+            {
+                ["usuario"] = usuario
+            });
         }
         catch (Exception ex)
         {

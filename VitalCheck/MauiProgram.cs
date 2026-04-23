@@ -2,6 +2,7 @@
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using VitalCheck.Services.DataBase.Create;
 using VitalCheck.Services.Navigation;
+using VitalCheck.Services.Security;
 using VitalCheck.Services.Settings;
 using VitalCheck.Services.Users;
 using VitalCheck.View;
@@ -17,7 +18,7 @@ namespace VitalCheck
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseSkiaSharp()
+                //.UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -46,6 +47,8 @@ namespace VitalCheck
             builder.Services.AddSingleton<IUserService, UserService>();
             builder.Services.AddSingleton<ISettingsService, SettingsService>();
             builder.Services.AddSingleton<IDataBaseService, DataBaseService>();
+            builder.Services.AddSingleton<ISecurityServices, SecurityServices>();
+
             return builder;
         }
         public static MauiAppBuilder RegisterView(this MauiAppBuilder builder)

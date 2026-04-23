@@ -1,27 +1,31 @@
 ﻿using VitalCheck.Services.Settings;
 
-namespace VitalCheck.Services.Navigation
+namespace VitalCheck.Services.Navigation;
+
+public class NavigationService : INavigationService
 {
-    public class NavigationService(ISettingsService settingsService) : INavigationService
+    private readonly ISettingsService _settingsService;
+
+    public NavigationService(ISettingsService settingsService)
     {
+        _settingsService = settingsService;
+    }
 
-        private readonly ISettingsService _settingsService = settingsService;
+    public Task InitializeAsync()
+    {
+        if (string.IsNullOrEmpty(_settingsService.AuthAccessToken))
+            return NavigationAsync("///Main");
 
-        public Task InitializeAsync()
-        {
-            var defaultRoute = "Dashboard";
-            if (string.IsNullOrEmpty(_settingsService.AuthAccessToken))
-                defaultRoute = "Login";
-            return NavigationAsync(defaultRoute);
-        }
-        public Task NavigationAsync(string route)
-        {
-            return Shell.Current.GoToAsync(route);
+        return NavigationAsync("///Dashboard");
+    }
 
-        }
-        public Task NavigationAsync(string route, object parameter)
-        {
-            return Shell.Current.GoToAsync(route, (ShellNavigationQueryParameters)parameter);
-        }
+    public Task NavigationAsync(string route)
+    {
+        return Shell.Current.GoToAsync(route);
+    }
+
+    public Task NavigationAsync(string route, IDictionary<string, object> parameters)
+    {
+        return Shell.Current.GoToAsync(route, parameters);
     }
 }
