@@ -8,7 +8,7 @@ using VitalCheck.Model.DataBases;
 
 namespace VitalCheck.Model
 {
-    [Table("CheckIns")]
+    [Table("CheckIn")]
     public class CheckIn : BaseSQLiteModel
     {
         public CheckIn()

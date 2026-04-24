@@ -5,6 +5,6 @@ namespace VitalCheck.Model.DataBases
     public class BaseSQLiteModel
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 }

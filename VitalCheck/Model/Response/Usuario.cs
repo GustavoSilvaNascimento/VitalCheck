@@ -8,7 +8,7 @@ using VitalCheck.Model.DataBases;
 
 namespace VitalCheck.Model.Response
 {
-    [Table("Usuarios")]
+    [Table("Usuario")]
 
     public class Usuario : BaseSQLiteModel
         {
@@ -21,7 +21,9 @@ namespace VitalCheck.Model.Response
         public double Peso { get; set; }
         public double Altura { get; set; }
         public string? UserName { get; set; }
+        [SQLite.Ignore]
         public int Idade
+       
         {
             get
             {

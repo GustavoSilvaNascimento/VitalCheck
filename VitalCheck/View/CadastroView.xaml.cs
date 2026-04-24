@@ -44,38 +44,46 @@ public partial class CadastroView : ContentPage
                 await DisplayAlert("Erro", "Senhas não conferem", "OK");
                 return;
             }
+            if (await _usuarioService.GetByEmailAsync(email) != null) { 
+                //Criar objeto
+                var usuario = new Usuario
+                {
+                    Nome = nome,
+                    Email = email,
+                    Senha = senha
+                };
 
-            
+                //Salvar no banco
+                Usuario user = await _usuarioService.AddDb(usuario);
+                if (user != null)
+                {
+                    
+                    await DisplayAlert("Sucesso", $"Usuário {user.Nome} cadastrado com sucesso!", "OK");
 
-            //Criar objeto
-            var usuario = new Usuario
-            {
-                Nome = nome,
-                Email = email,
-                Senha = senha
-            };
+                }
+                else
+                {
+                    await DisplayAlert("Erro", "Falha ao cadastrar usuário", "OK");
+                    return;
+                }
+                //Limpar campos
+                NomeCompletoEntry.Text = "";
+                EmailEntry.Text = "";
+                SenhaEntry.Text = "";
+                ConfirmarSenhaEntry.Text = "";
 
-            //Salvar no banco
-            Usuario user=await _usuarioService.AddDb(usuario);
-            if (user != null)
-            {
-                await DisplayAlert("Sucesso", $"Usuário {user.Nome} cadastrado com sucesso!", "OK");
-            }
-             else
-            {
-                await DisplayAlert("Erro", "Falha ao cadastrar usuário", "OK");
+                UserToken userToken = await _usuarioService.CreateToken(user);
+                string token = userToken.Token;
+                await Shell.Current.GoToAsync("pesogenero", new Dictionary<string, object>
+                {
+                    ["Token"] = token
+                });
+            }else
+             {
+                await DisplayAlert("Erro", "Email já cadastrado", "OK");
+                EmailEntry.Text = "";
                 return;
-            }
-            //Limpar campos
-            NomeCompletoEntry.Text = "";
-            EmailEntry.Text = "";
-            SenhaEntry.Text = "";
-            ConfirmarSenhaEntry.Text = "";
-
-            await Shell.Current.GoToAsync("pesogenero", new Dictionary<string, object>
-            {
-                ["usuario"] = usuario
-            });
+             }
         }
         catch (Exception ex)
         {

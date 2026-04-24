@@ -1,26 +1,29 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using VitalCheck.Model.DataBases;
 
 namespace VitalCheck.Model.Response
 {
-    public class UserToken
+    [Table("UserToken")]
+    public class UserToken : BaseSQLiteModel
     {
-        public int Id { get; set; }
+        
 
-        public string Nome { get; set; }
-        public string UserName { get; set; }
+        public string? Nome { get; set; }
+        public string? UserName { get; set; }
 
-        public string Email { get; set; } 
+        public string? Email { get; set; } 
 
-        public string Senha { get; set; } 
+        public string? Senha { get; set; } 
 
-        public string Genero { get; set; } 
+        public string? Genero { get; set; } 
 
         public DateTime DataNascimento { get; set; }
 
         public double Peso { get; set; }
-        public string Token { get; set; } 
+        public string? Token { get; set; } 
 
         public int Idade => CalcularIdade();
 

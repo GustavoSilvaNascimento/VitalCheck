@@ -11,7 +11,8 @@ namespace VitalCheck.Services.DataBase.Create
 
         public SQLiteConnection<CheckIn> CheckInConection { get; } =
             new SQLiteConnection<CheckIn>();
-
+        public SQLiteConnection<UserToken> UserTokenConnection { get; } =
+            new SQLiteConnection<UserToken>();
         public DataBaseService()
         {
         }
@@ -20,6 +21,7 @@ namespace VitalCheck.Services.DataBase.Create
         {
             await UserConection.Init();
             await CheckInConection.Init();
+                await UserTokenConnection.Init();
         }
     }
 }

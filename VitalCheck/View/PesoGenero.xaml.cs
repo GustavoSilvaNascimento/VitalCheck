@@ -1,14 +1,41 @@
 namespace VitalCheck.View;
 
 using Microsoft.Maui.Graphics;
+using VitalCheck.Model.Response;
+using VitalCheck.Services.Users;
 
+[QueryProperty(nameof(Token), "Token")]
 public partial class PesoGenero : ContentPage
 {
+    #region token
+    public string Token
+    {
+        set
+        {
+            _token = Uri.UnescapeDataString(value); // importante!
+            Console.WriteLine(_token);
+        }
+    }
+
+    private string _token;
+    #endregion
+    private readonly INavigationService _navigationService;
+    private readonly IUserService _userService;
     private string generoSelecionado = "Homem";
-	public PesoGenero()
-	{
-		InitializeComponent();
-	}
+    public PesoGenero(INavigationService navigationService, IUserService userService)
+    {
+        _navigationService = navigationService;
+        _userService = userService;
+        if (string.IsNullOrEmpty(_token))
+        {
+            Console.WriteLine("Token não recebido.");
+            _navigationService.NavigationAsync("///Main");
+        }
+        else {InitializeComponent();}
+         
+
+    }
+
 
     private async void ImageButton_Clicked_1(object sender, EventArgs e)
     {
@@ -18,7 +45,11 @@ public partial class PesoGenero : ContentPage
             double altura = AlturaSlider.Value;
             double peso = PesoSlider.Value;
 
-            //Adicionar logica do banco de dados
+            Usuario usuario= await _userService.GetByTokenAsync(_token);
+            usuario.Genero = genero;
+            usuario.Altura = altura;
+            usuario.Peso = peso;
+            await _userService.UpdateTokenAsync(usuario, _token);
 
             await Shell.Current.GoToAsync("idade");
 
