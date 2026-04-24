@@ -1,97 +1,103 @@
-namespace VitalCheck.View;
-
-using Microsoft.Maui.Graphics;
-using VitalCheck.Model.Response;
+using VitalCheck.Services.Auth;
+using VitalCheck.Services.Navigation;
 using VitalCheck.Services.Users;
 
-[QueryProperty(nameof(Token), "Token")]
+namespace VitalCheck.View;
+
 public partial class PesoGenero : ContentPage
 {
-    #region token
-    public string Token
-    {
-        set
-        {
-            _token = Uri.UnescapeDataString(value); // importante!
-            Console.WriteLine(_token);
-        }
-    }
-
-    private string _token;
-    #endregion
     private readonly INavigationService _navigationService;
     private readonly IUserService _userService;
+    private readonly IAuthService _authService;
+
     private string generoSelecionado = "Homem";
-    public PesoGenero(INavigationService navigationService, IUserService userService)
+
+    public PesoGenero(
+        INavigationService navigationService,
+        IUserService userService,
+        IAuthService authService)
     {
+        InitializeComponent();
+
         _navigationService = navigationService;
         _userService = userService;
-        if (string.IsNullOrEmpty(_token))
-        {
-            Console.WriteLine("Token não recebido.");
-            _navigationService.NavigationAsync("///Main");
-        }
-        else {InitializeComponent();}
-         
-
+        _authService = authService;
     }
 
-
-    private async void ImageButton_Clicked_1(object sender, EventArgs e)
+    protected override async void OnAppearing()
     {
-        try 
-        {
-            string genero = generoSelecionado;
-            double altura = AlturaSlider.Value;
-            double peso = PesoSlider.Value;
+        base.OnAppearing();
 
-            Usuario usuario= await _userService.GetByTokenAsync(_token);
-            usuario.Genero = genero;
-            usuario.Altura = altura;
-            usuario.Peso = peso;
-            await _userService.UpdateTokenAsync(usuario, _token);
+        await VerificarLoginAsync();
+    }
+
+    private async Task VerificarLoginAsync()
+    {
+        bool logado = await _authService.IsLoggedAsync();
+
+        if (!logado)
+        {
+            await _navigationService.NavigationAsync("///Main");
+        }
+    }
+
+    private async void ImageButton_Clicked_1(
+        object sender,
+        EventArgs e)
+    {
+        try
+        {
+            var usuario =
+                await _authService.GetCurrentUserAsync();
+
+            if (usuario == null)
+            {
+                await DisplayAlert(
+                    "Erro",
+                    "Usuário não encontrado.",
+                    "OK");
+                return;
+            }
+
+            usuario.Genero = generoSelecionado;
+            usuario.Altura = AlturaSlider.Value;
+            usuario.Peso = PesoSlider.Value;
+
+            await _userService.UpdateAsync(usuario);
 
             await Shell.Current.GoToAsync("idade");
-
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Erro na Navegação", ex.Message, "OK");
+            await DisplayAlert(
+                "Erro",
+                ex.Message,
+                "OK");
         }
     }
 
-    private void TapGestureRecognizer_Homem(object sender, TappedEventArgs e)
+    private void TapGestureRecognizer_Homem(
+        object sender,
+        TappedEventArgs e)
     {
-        if (generoSelecionado != "Homem") 
-        {
-            generoSelecionado = "Homem";
-            AtualizarCards();
-        }
+        generoSelecionado = "Homem";
+        AtualizarCards();
     }
 
-    private void TapGestureRecognizer_Mulher(object sender, TappedEventArgs e)
+    private void TapGestureRecognizer_Mulher(
+        object sender,
+        TappedEventArgs e)
     {
-        if(generoSelecionado != "Mulher") 
-        {
-            generoSelecionado = "Mulher";
-            AtualizarCards();
-        }
+        generoSelecionado = "Mulher";
+        AtualizarCards();
     }
 
     private void AtualizarCards()
     {
-        if(generoSelecionado == "Homem")
-        {
-            check_homem.IsVisible = true;
+        check_homem.IsVisible =
+            generoSelecionado == "Homem";
 
-            check_mulher.IsVisible = false;
-        }
-
-        else if (generoSelecionado == "Mulher") {
-            check_mulher.IsVisible = true;
-
-            check_homem.IsVisible = false;
-        }
-
+        check_mulher.IsVisible =
+            generoSelecionado == "Mulher";
     }
 }

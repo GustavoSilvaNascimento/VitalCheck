@@ -11,12 +11,14 @@ public class NavigationService : INavigationService
         _settingsService = settingsService;
     }
 
-    public Task InitializeAsync()
+    public async Task InitializeAsync()
     {
-        if (string.IsNullOrEmpty(_settingsService.AuthAccessToken))
-            return NavigationAsync("///Main");
+        var token = await _settingsService.GetTokenAsync();
 
-        return NavigationAsync("///Dashboard");
+        if (string.IsNullOrWhiteSpace(token))
+            await NavigationAsync("///Main");
+        else
+            await NavigationAsync("///Dashboard");
     }
 
     public Task NavigationAsync(string route)

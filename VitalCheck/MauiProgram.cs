@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
+using VitalCheck.Services.Auth;
 using VitalCheck.Services.DataBase.Create;
 using VitalCheck.Services.Navigation;
 using VitalCheck.Services.Security;
 using VitalCheck.Services.Settings;
 using VitalCheck.Services.Users;
 using VitalCheck.View;
+using VitalCheck.ViewModels;
 
 
 
@@ -38,6 +40,9 @@ namespace VitalCheck
         }
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder builder)
         {
+            builder.Services.AddTransient<CadastroViewModel>();
+            builder.Services.AddTransient<LoginViewModel>();
+            builder.Services.AddTransient<BaseViewModel>();
 
             return builder;
         }
@@ -48,6 +53,7 @@ namespace VitalCheck
             builder.Services.AddSingleton<ISettingsService, SettingsService>();
             builder.Services.AddSingleton<IDataBaseService, DataBaseService>();
             builder.Services.AddSingleton<ISecurityServices, SecurityServices>();
+            builder.Services.AddSingleton<IAuthService, AuthService>();
 
             return builder;
         }

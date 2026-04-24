@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
-namespace VitalCheck.Services.Settings
+namespace VitalCheck.Services.Settings;
+
+public interface ISettingsService
 {
-    public interface ISettingsService
-    {
-        string AuthAccessToken { get; set; }
-
-        void ClearToken();
-    }
+    Task<string?> GetTokenAsync();
+    Task SaveTokenAsync(string token);
+    Task<bool> IsLoggedAsync();
+    Task ClearTokenAsync();
+    Task SaveUserIdAsync(int userId);
+    Task<int?> GetUserIdAsync();
 }

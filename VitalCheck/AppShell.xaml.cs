@@ -17,14 +17,14 @@ namespace VitalCheck
         public void RegisterRoutes()
         {
             Routing.RegisterRoute("login", typeof(LoginView));
-            Routing.RegisterRoute("Alimentacao", typeof(AlimentacaoView));
+            //Routing.RegisterRoute("Alimentacao", typeof(AlimentacaoView));
             Routing.RegisterRoute("Cadastro", typeof(CadastroView));
-            Routing.RegisterRoute("Dashboard", typeof(DashboardView));
+            //Routing.RegisterRoute("Dashboard", typeof(DashboardView));
             Routing.RegisterRoute("Idade", typeof(IdadeView));
             Routing.RegisterRoute("Main", typeof(MainPage));
             Routing.RegisterRoute("PesoGenero", typeof(PesoGenero));
-            Routing.RegisterRoute("Sono", typeof(SonoView));
-            Routing.RegisterRoute("Treino", typeof(TreinoView));
+            //Routing.RegisterRoute("Sono", typeof(SonoView));
+            //Routing.RegisterRoute("Treino", typeof(TreinoView));
 
 
         }

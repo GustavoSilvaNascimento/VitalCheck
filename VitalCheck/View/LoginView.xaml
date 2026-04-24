@@ -8,110 +8,90 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <StackLayout 
-                Grid.Row="0" 
-                Orientation="Vertical" 
-                HorizontalOptions="Center" 
-                VerticalOptions="End"
+            <StackLayout
+                Grid.Row="0"
+                HorizontalOptions="Center"
                 Margin="0,0,0,60">
 
-                <!-- Título -->
-                <Label 
-                    Text="Login" 
+                <Label
+                    Text="Login"
                     FontFamily="DMSans"
                     TextColor="{StaticResource Saude4}"
-                    FontSize="30" 
-                    FontAttributes="Bold" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center"/>
+                    FontSize="30"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"/>
 
-                <Label 
-                    Text="Por favor, insira seus dados" 
+                <Label
+                    Text="Por favor, insira seus dados"
                     FontSize="13"
                     FontFamily="DMSans"
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" />
-                
-                <!-- Formulario -->
+                    HorizontalOptions="Center"/>
+
+                <!-- Formulário -->
                 <StackLayout
-                    Grid.Row="1" 
-                    Orientation="Vertical" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="End"
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
                     Margin="0,70,0,70">
-                    
-                     <!-- Email -->
-                    <Label 
-                        Text="Email" 
-                        FontFamily="DMSans"
-                        FontSize="13" 
-                        TextColor="{StaticResource Saude4}"
-                        HorizontalOptions="Start" 
-                        Margin="0,2" />
 
-                    <Entry 
-                        x:Name="EmailEntry" 
-                        Placeholder="exemplo@gmail.com" 
+                    <Label
+                        Text="Email"
                         FontFamily="DMSans"
-                        WidthRequest="250" 
-                        Margin="0,6"/>
+                        FontSize="13"
+                        TextColor="{StaticResource Saude4}" />
 
-                    <!-- Senha -->
-                    <Label 
+                    <Entry
+                        Placeholder="exemplo@gmail.com"
+                        WidthRequest="250"
+                        FontFamily="DMSans"
+                        Keyboard="Email"
+                        Text="{Binding Email}" />
+
+                    <Label
                         Text="Senha"
                         FontFamily="DMSans"
                         FontSize="13"
-                        TextColor="{StaticResource Saude4}"
-                        HorizontalOptions="Start" 
-                        Margin="0,6" />
+                        TextColor="{StaticResource Saude4}" />
 
-                    <Entry 
-                        x:Name="SenhaEntry" 
-                        Placeholder="Mínimo de 8 caracteres" 
-                        IsPassword="True" 
+                    <Entry
+                        Placeholder="Mínimo de 8 caracteres"
                         WidthRequest="250"
                         FontFamily="DMSans"
-                        Margin="0,6" />
-                    
+                        IsPassword="True"
+                        Text="{Binding Senha}" />
+
                 </StackLayout>
 
+                <!-- Botões -->
                 <VerticalStackLayout
-                    Grid.Row="2" 
-                    Spacing="8" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center">
-                
-                    <Button 
-                        Text="Login" 
-                        BackgroundColor="{StaticResource Saude4}" 
+                    Spacing="8"
+                    HorizontalOptions="Center">
+
+                    <Button
+                        Text="Login"
+                        BackgroundColor="{StaticResource Saude4}"
                         TextColor="White"
-                        FontFamily="DMSans"
                         WidthRequest="210"
                         CornerRadius="20"
-                        Margin="0,10,0,6" 
-                        Clicked="OnLoginClicked" />
+                        Command="{Binding LoginCommand}" />
 
-                    <Label 
-                        Text="Não tem uma conta? Cadastre-se!" 
-                        FontSize="10" 
+                    <Label
+                        Text="Não tem uma conta? Cadastre-se!"
+                        FontSize="10"
                         FontFamily="DMSans"
-                        HorizontalOptions="Center" 
-                        Margin="0,2"/>
+                        HorizontalOptions="Center"/>
 
                     <Button
                         Text="Cadastrar"
-                        BackgroundColor="{StaticResource Saude2}" 
-                        TextColor="{StaticResource Saude1}" 
-                        FontFamily="DMSans"
+                        BackgroundColor="{StaticResource Saude2}"
+                        TextColor="{StaticResource Saude1}"
                         WidthRequest="210"
                         CornerRadius="20"
-                        Clicked="OnCadastroClicked"
-                        Margin="0,4"/>
+                        Command="{Binding CadastroCommand}" />
 
                 </VerticalStackLayout>
 
@@ -120,5 +100,4 @@
         </Grid>
 
     </VerticalStackLayout>
-
 </ContentPage>

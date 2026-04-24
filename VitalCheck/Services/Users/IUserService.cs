@@ -6,14 +6,13 @@ namespace VitalCheck.Services.Users
     {
   
         Task<Usuario> AddDb(Usuario user);
-        Task<UserToken> AuthenticateDb(UserAuth auth, Usuario user);
-        Task<UserToken> CreateToken(Usuario user);
-        Task<Usuario> GetByEmailAndSenhaAsync(string email, string senha);
-        Task<Usuario> GetByEmailAsync(string email);
-        public string GetSettings();
-        public void SetSettings(string token);
-        Task<Usuario> GetByIdAsync(int id);
-        Task<Usuario> GetByTokenAsync(string token);
-        Task UpdateTokenAsync(Usuario usuario, string token);
+        Task InsertAsync(Usuario user);
+        Task<Usuario?> GetByIdAsync(int id);
+        Task<Usuario?> GetByEmailAndSenhaAsync(string email, string senha);
+        Task<Usuario?> GetByEmailAsync(string email);
+        Task<List<Usuario>> GetAllAsync();
+        Task UpdateAsync(Usuario user);
+        Task DeleteAsync(Usuario user);
+        Task<Usuario?> GetByTokenAsync(string token);
     }
 }
