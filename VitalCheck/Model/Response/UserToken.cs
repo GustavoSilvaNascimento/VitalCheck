@@ -24,9 +24,9 @@ namespace VitalCheck.Model.Response
 
         public double Peso { get; set; }
         public string? Token { get; set; } 
-
+        [SQLite.Ignore]
         public int Idade => CalcularIdade();
-
+        
         private int CalcularIdade()
         {
             var hoje = DateTime.Today;

@@ -16,7 +16,7 @@ namespace VitalCheck
         }
         public void RegisterRoutes()
         {
-            Routing.RegisterRoute("login", typeof(LoginView));
+            Routing.RegisterRoute("Login", typeof(LoginView));
             //Routing.RegisterRoute("Alimentacao", typeof(AlimentacaoView));
             Routing.RegisterRoute("Cadastro", typeof(CadastroView));
             //Routing.RegisterRoute("Dashboard", typeof(DashboardView));

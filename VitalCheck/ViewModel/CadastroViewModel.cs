@@ -76,7 +76,7 @@ namespace VitalCheck.ViewModels
 
         private async Task IrLoginAsync()
         {
-            await Shell.Current.GoToAsync("Login");
+            await Shell.Current.GoToAsync("/Login");
         }
 
         private async Task CadastrarAsync()
