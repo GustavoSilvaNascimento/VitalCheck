@@ -65,7 +65,7 @@ public partial class PesoGenero : ContentPage
 
             await _userService.UpdateAsync(usuario);
 
-            await Shell.Current.GoToAsync("idade");
+            await Shell.Current.GoToAsync("Idade");
         }
         catch (Exception ex)
         {

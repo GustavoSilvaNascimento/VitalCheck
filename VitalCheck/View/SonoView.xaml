@@ -24,6 +24,35 @@
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
                 Margin="0,70"/>
+                
+                <!--Inserir score de acordo com o sono colocado no check in
+                    //aqui
+                -->
+
+                <Label Grid.Row="0"
+                       Text="Score"
+                       FontFamily="DMSans"
+                       TextColor="{StaticResource Saude4}"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Margin="0,40"/>
+            </Grid>
+
+            <Grid RowDefinitions="auto">
+                <Label Grid.Row="0"
+                       Text="Histórico de Sono"
+                       FontFamily="DMSans"
+                       TextColor="{StaticResource Saude4}"
+                       FontSize="20"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Margin="0,10"/>
+                
+                <!--Inserir historico de registros de sono
+                    //aqui
+                -->
+                
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
