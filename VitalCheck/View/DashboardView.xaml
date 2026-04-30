@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
-    
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VitalCheck.View.DashboardView">
     <ScrollView>
-        <VerticalStackLayout Padding="30,20,30,100" Spacing="0">
+        <VerticalStackLayout Padding="28,16,28,100" Spacing="0">
             
             <!--Header-->
-            <Grid RowDefinitions="auto">
-                <ImageButton Grid.Row="0" Source="avatar.png"
-                         WidthRequest="30"
-                         HeightRequest="30"
-                         Aspect="AspectFill"
-                         HorizontalOptions="Start"
-                         VerticalOptions="Start"
-                         Margin="0,10"
-                         />
-                <Label Grid.Row="0" Text="Olá, Fulano" 
+            <Grid RowDefinitions="auto, *, auto" Margin="0,10,0,0">
+                <Border Grid.Column="0"
+                        WidthRequest="42" HeightRequest="42"
+                        StrokeShape="Ellipse"
+                        HorizontalOptions="Start"
+                        Stroke="Transparent"
+                        BackgroundColor="#D8E8F5">
+                    <Image Source="avatar.png"
+                           Aspect="AspectFill"
+                           WidthRequest="42"
+                           HeightRequest="42"/>
+                </Border>
+                
+                <Label Grid.Row="1" Text="Olá, Fulano" 
                         FontFamily="DMSans"
                         TextColor="{StaticResource Saude4}"
                         FontSize="18" 
-                        HorizontalOptions="Start" 
                         VerticalOptions="Center"
-                        Margin="60,0"/>
+                        Margin="60,-36,0,0"/>
             </Grid>
             
             <!--Dia + Animação progresso vitalscore-->
-            <Grid RowDefinitions="auto" Margin="0,20">
                 <Label Text="Hoje"
                        FontFamily="DMSansSemiBold"
                        TextColor="{StaticResource Saude4}"
                        FontSize="30"
-                       HorizontalOptions="Start"/>
+                       HorizontalOptions="Start"
+                       Margin="0,25"/>
 
                 <!--Adicionar lógica do vitalscore aqui junto com alguma animacao para que o label e a animacao sejam de acordo com o score-->
-                
-                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label x:Name="ScoreLabel"
+
+            <VerticalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label x:Name="ScoreLabel"
                            Text="85"
                            FontFamily="DMSansBold"
                            FontSize="50"
@@ -44,35 +46,111 @@
                            HorizontalOptions="Center"
                            />
 
-                    <Label Text="VitalScore"
+                <Label Text="VitalScore"
                            FontSize="16"
                            FontFamily="DMSans"
                            TextColor="{StaticResource Saude4}"
                            HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-            </Grid>
+            </VerticalStackLayout>
 
-            <Grid RowDefinitions="auto">
-                <Label 
-                    Text="Já realizou seu check-in diário hoje?" 
-                    FontSize="14" 
+            <VerticalStackLayout Margin="0,20,0,0" Spacing="6">
+                <Label
+                    x:Name="ProgressLabel"
+                    Text="Quase lá!" 
+                    FontSize="12" 
                     FontFamily="DMSans"
-                    HorizontalOptions="Center" 
-                    Margin="0,-20"
                     TextColor="{StaticResource Saude4}"/>
 
-            </Grid>
+                <Grid HeightRequest="8">
+                    <Border StrokeShape="RoundRectangle 4"
+                            BackgroundColor="#C9D8EA"
+                            HeightRequest="8"/>
 
-            <Grid RowDefinitions="auto" Margin="0,40">
-                <Label Text="Seu último check-in"
+                    <Border x:Name="ProgressFill"
+                            StrokeShape="RoundRectangle 4"
+                            BackgroundColor="#1A2E6C"
+                            HeightRequest="8"
+                            HorizontalOptions="Start"
+                            WidthRequest="240"/>
+                    <!-- ajuste WidthRequest via code-behind com base no score -->
+                </Grid>
+            </VerticalStackLayout>
+            <Label Text="Seu último check-in"
                    FontFamily="DMSansSemiBold"
                    TextColor="{StaticResource Saude4}"
                    FontSize="25"
-                   HorizontalOptions="Start"/>
-                
-                <!--Informações do último check-in-->
-            </Grid>
+                   Margin="0,24,0,0"/>
 
+            <Label Text="Ontem"
+                   FontFamily="DMSansSemiBold"
+                   TextColor="{StaticResource Saude4}"
+                   FontSize="14"
+                   Opacity="0.7"
+                   Margin="0,2,0,12"/>
+
+            <VerticalStackLayout x:Name="CheckInContent" Spacing="14">
+                <!--Alimentação-->
+                <Grid ColumnDefinitions="32,*">
+                    <Image Grid.Column="0"
+                           Source="botao_alimentacao.png"
+                           WidthRequest="24" HeightRequest="24"
+                           VerticalOptions="Center"/>
+                    <Label Grid.Column="1"
+                           Text="Alimentação - 1.100 kcal"
+                           FontFamily="DMSans"
+                           FontSize="15"
+                           TextColor="{StaticResource Saude4}"
+                           VerticalOptions="Center"/>
+                </Grid>
+
+                <!--Sono-->
+                <Grid ColumnDefinitions="32,*">
+                    <Image Grid.Column="0"
+                           Source="botao_sono.png"
+                           WidthRequest="24" HeightRequest="24"
+                           VerticalOptions="Center"/>
+                    <Label Grid.Column="1"
+                           Text="Sono - 21 pontos"
+                           FontFamily="DMSans"
+                           FontSize="15"
+                           TextColor="{StaticResource Saude4}"
+                           VerticalOptions="Center"/>
+                </Grid>
+
+                <!--Treino-->
+                <Grid ColumnDefinitions="32,*">
+                    <Image Grid.Column="0"
+                           Source="botao_treino.png"
+                           WidthRequest="24" HeightRequest="24"
+                           VerticalOptions="Center"/>
+                    <Label Grid.Column="1"
+                           Text="Treino realizado"
+                           FontFamily="DMSans"
+                           FontSize="15"
+                           TextColor="{StaticResource Saude4}"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </VerticalStackLayout>
+            
+            <!--ESTADO SEM CHECK IN-->
+            <VerticalStackLayout x:Name="EmptyCheckIn"
+                                 IsVisible="False"
+                                 HorizontalOptions="Center"
+                                 Spacing="8"
+                                 Margin="0,16,0,0">
+                <Label Text="Nenhum check-in ainda."
+                       FontFamily="DMSans"
+                       FontSize="15"
+                       TextColor="#1A2E6C"
+                       Opacity="0.5"
+                       HorizontalOptions="Center"/>
+                <Label Text="Complete seu primeiro check-in hoje!"
+                       FontFamily="DMSans"
+                       FontSize="13"
+                       TextColor="#1A2E6C"
+                       Opacity="0.4"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
