@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitalCheck.View.DetalhesTreinoModal"
+             BackgroundColor="#80000000">
+    <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Center" BackgroundColor="White" Margin="20">
+        <Label Text="{Binding Nome}" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource Saude4}"/>
+
+        <Label Text="Exercicio 1:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="{Binding Exercicio1}" FontSize="14" />
+        
+        <Label Text="Exercicio 2:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="{Binding Exercicio2}" FontSize="14" />
+
+        <Label Text="Exercicio 3:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="{Binding Exercicio3}" FontSize="14" />
+
+        <Label Text="Exercicio 4:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="{Binding Exercicio4}" FontSize="14" />
+
+        <Label Text="Exercicio 5:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="{Binding Exercicio5}" FontSize="14" />
+
+        <Label Text="Exercicio 6:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="{Binding Exercicio6}" FontSize="14" />
+
+        <Button Text="Fechar" Clicked="Fechar_Clicked" Margin="0,20,0,0" BackgroundColor="{StaticResource Saude4}" TextColor="White"/>
+    </VerticalStackLayout>
+</ContentPage>

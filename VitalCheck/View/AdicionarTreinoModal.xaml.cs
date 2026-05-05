@@ -1,21 +1,31 @@
+using System.Collections.ObjectModel;
+using VitalCheck.Model;
+
 namespace VitalCheck.View;
 
 public partial class AdicionarTreinoModal : ContentPage
 {
-	public AdicionarTreinoModal()
+    private ObservableCollection<Treino> _listaPrincipal;
+    public AdicionarTreinoModal(ObservableCollection<Treino> lista)
 	{
 		InitializeComponent();
-	}
+        _listaPrincipal = lista;
+    }
 
     private async void Salvar_Clicked(object sender, EventArgs e)
     {
-        string nomeTreino = NomeTreinoEntry.Text;
-        string exercicio1 = Exercicio1Entry.Text;
-        string exercicio2 = Exercicio2Entry.Text;
-        string exercicio3 = Exercicio3Entry.Text;
-        string exercicio4 = Exercicio4Entry.Text;
-        string exercicio5 = Exercicio5Entry.Text;
-        string exercicio6 = Exercicio6Entry.Text;
+
+        var novoTreino = new Treino {
+            Nome = NomeTreinoEntry.Text,
+            Exercicio1 = Exercicio1Entry.Text,
+            Exercicio2 = Exercicio2Entry.Text,
+            Exercicio3 = Exercicio3Entry.Text,
+            Exercicio4 = Exercicio4Entry.Text,
+            Exercicio5 = Exercicio5Entry.Text,
+            Exercicio6 = Exercicio6Entry.Text,
+        };
+
+        _listaPrincipal.Add(novoTreino);
 
         await Navigation.PopModalAsync();
     }

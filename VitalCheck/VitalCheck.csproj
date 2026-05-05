@@ -79,6 +79,9 @@
 	  <MauiXaml Update="View\DashboardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\DetalhesTreinoModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\EmergenciaView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

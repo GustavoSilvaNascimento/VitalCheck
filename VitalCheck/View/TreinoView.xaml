@@ -30,42 +30,49 @@
                     <!--Adicionar lógica do banco de dados-->
 
                 </Grid>
+                
+                <!--Lista de Treinos com CollectionView-->
+                <CollectionView x:Name="ListaTreinos" Margin="0,-40,0,40">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="20" VerticalItemSpacing="20"/>
+                    </CollectionView.ItemsLayout>
 
-                <Grid RowDefinitions="auto" ColumnSpacing="20" Margin="0,-40,0,40">
-                    <VerticalStackLayout Grid.Column="0" Spacing="10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Spacing="10">
+                                <Border Stroke="{StaticResource Saude4}"
+                                        StrokeThickness="1"
+                                        StrokeShape="RoundRectangle 20"
+                                        HeightRequest="140"
+                                        Padding="10">
 
-                        <Border Stroke="{StaticResource Saude4}"
-                                StrokeThickness="1"
-                                StrokeShape="RoundRectangle 20"
-                                HeightRequest="140"
-                                Padding="10">
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                            </Border.GestureRecognizers>
-                            <Grid>
-                                <Image Source="botao_treino.png" HorizontalOptions="Center" VerticalOptions="Start"
-                                WidthRequest="100" HeightRequest="100" Margin="5"/>
-                            </Grid>
-                        </Border>
-                        <Label Text="Treino A" FontFamily="DMSans" FontSize="17" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Treino_Tapped" CommandParameter="{Binding .}"/>
+                                    </Border.GestureRecognizers>
 
+                                    <Grid>
+                                        <Image Source="botao_treino.png" HorizontalOptions="Center" VerticalOptions="Start"
+                               WidthRequest="100" HeightRequest="100" Margin="5"/>
+                                    </Grid>
+                                </Border>
 
-                </Grid>
-                <ImageButton Source="botaoa_adicionar.png"
-                            WidthRequest="30"
-                            HeightRequest="30"
-                            CornerRadius="30"
-                            Aspect="AspectFit"
-                            HorizontalOptions="Center"
-                            VerticalOptions="End"
-                            Margin="0, 280"
-                             Clicked="ImageButton_Clicked_1"/>
-
-                <!--Adicionar logica de conseguir ao apertar no botao adicionar colocar mais um Border desses ai d cima-->
+                                <Label Text="{Binding Nome}" FontFamily="DMSans" FontSize="17" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
             </VerticalStackLayout>
 
         </ScrollView>
+        <ImageButton Source="botaoa_adicionar.png"
+            WidthRequest="30"
+            HeightRequest="30"
+            CornerRadius="30"
+            Aspect="AspectFit"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0, 30"
+             Clicked="ImageButton_Clicked_1"/>
     </Grid>
 </ContentPage>
