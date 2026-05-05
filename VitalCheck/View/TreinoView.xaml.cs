@@ -29,8 +29,8 @@ public partial class TreinoView : ContentPage
 
     }
 
-    private void ImageButton_Clicked_1(object sender, EventArgs e)
+    private async void ImageButton_Clicked_1(object sender, EventArgs e)
     {
-
+        await Navigation.PushModalAsync(new AdicionarTreinoModal());
     }
 }

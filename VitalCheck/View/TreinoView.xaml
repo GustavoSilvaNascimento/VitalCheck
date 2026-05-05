@@ -26,9 +26,9 @@
                        HorizontalOptions="Start"
                        VerticalOptions="Center"
                        Margin="0,70"/>
-                    
+
                     <!--Adicionar lógica do banco de dados-->
-              
+
                 </Grid>
 
                 <Grid RowDefinitions="auto" ColumnSpacing="20" Margin="0,-40,0,40">
@@ -49,21 +49,23 @@
                         </Border>
                         <Label Text="Treino A" FontFamily="DMSans" FontSize="17" TextColor="{StaticResource Saude4}" HorizontalOptions="Center"/>
                     </VerticalStackLayout>
-                    
-                    
+
+
                 </Grid>
+                <ImageButton Source="botaoa_adicionar.png"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            CornerRadius="30"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            Margin="0, 280"
+                             Clicked="ImageButton_Clicked_1"/>
+
+                <!--Adicionar logica de conseguir ao apertar no botao adicionar colocar mais um Border desses ai d cima-->
 
             </VerticalStackLayout>
+
         </ScrollView>
-        <!--Adicionar logica de conseguir ao apertar no botao adicionar colocar mais um Border desses ai d cima-->
-        <ImageButton Source="botao_adicionar.png"
-                    WidthRequest="30"
-                    HeightRequest="30"
-                    CornerRadius="30"
-                    Aspect="AspectFit"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Margin="0, 30"
-                     Clicked="ImageButton_Clicked_1"/>
     </Grid>
 </ContentPage>

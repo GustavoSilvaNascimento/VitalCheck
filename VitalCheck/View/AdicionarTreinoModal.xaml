@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitalCheck.View.AdicionarTreinoModal"
+             Title="Novo Treino"
+             BackgroundColor="#80000000">
+    <ScrollView>
+    <VerticalStackLayout Padding="20" Spacing="8" VerticalOptions="Center" BackgroundColor="White" Margin="30">
+        <Label Text="Nome do Treino:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="NomeTreinoEntry" Placeholder="ex: Treino B"/>
+
+        <Label Text="Exercicio 1:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="Exercicio1Entry" Placeholder="ex: Supino Reto"/>
+
+        <Label Text="Exercicio 2:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="Exercicio2Entry" Placeholder="ex: Crossover"/>
+
+        <Label Text="Exercicio 3:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="Exercicio3Entry" Placeholder="ex: Leg press"/>
+
+        <Label Text="Exercicio 4:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="Exercicio4Entry" Placeholder="ex: Voador"/>
+
+        <Label Text="Exercicio 5:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="Exercicio5Entry" Placeholder="ex: Flexão"/>
+
+        <Label Text="Exercicio 6:" FontSize="14" FontFamily="DMSans"/>
+        <Entry x:Name="Exercicio6Entry" Placeholder="ex: Abdominal"/>
+
+        <Button Text="Salvar" Clicked="Salvar_Clicked" TextColor="White"/>
+        <Button Text="Cancelar" Clicked="Cancelar_Clicked" BackgroundColor="{StaticResource Saude1}" TextColor="Black"/>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
