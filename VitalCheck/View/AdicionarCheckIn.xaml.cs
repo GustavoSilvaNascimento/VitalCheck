@@ -2,10 +2,12 @@ namespace VitalCheck.View;
 
 public partial class AdicionarCheckIn : ContentPage
 {
-	public AdicionarCheckIn()
+    private DashboardView _dashboard;
+    public AdicionarCheckIn(DashboardView dashboard)
 	{
 		InitializeComponent();
-	}
+        _dashboard = dashboard;
+    }
 
     private async void Salvar_Clicked(object sender, EventArgs e) 
 	{
@@ -16,9 +18,19 @@ public partial class AdicionarCheckIn : ContentPage
 
         bool treinouHoje = TreinoSimRadioButton.IsChecked;
 
-        if (string.IsNullOrWhiteSpace(horasSono) ||
-            string.IsNullOrWhiteSpace(energia) ||
-            humorSelecionado == null)
+        if (!double.TryParse(horasSono, out double horasSonoDouble))
+        {
+            await DisplayAlert("Erro", "Por favor, digite um número válido para as horas de sono.", "OK");
+            return;
+        }
+
+        if (!double.TryParse(energia, out double energiaDouble))
+        {
+            await DisplayAlert("Erro", "Por favor, digite um número válido para a energia", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(humorSelecionado))
         {
             await DisplayAlert("Aviso", "Por favor, preencha todos os campos.", "OK");
             return;
@@ -30,6 +42,7 @@ public partial class AdicionarCheckIn : ContentPage
         // var novoCheckin = new CheckInModel { Sono = int.Parse(horasSono), ... };
         // dbContext.Add(novoCheckin);
 
+        _dashboard.AtualizarCards(energiaDouble, horasSonoDouble, humorSelecionado, treinouHoje);
         await Navigation.PopModalAsync();
     }
 

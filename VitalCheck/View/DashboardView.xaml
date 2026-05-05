@@ -90,47 +90,69 @@
                        Opacity="0.7"
                        Margin="0,2,0,12"/>
 
-                <VerticalStackLayout x:Name="CheckInContent" Spacing="14">
-                    <!--Alimentação-->
-                    <Grid ColumnDefinitions="32,*">
-                        <Image Grid.Column="0"
-                               Source="botao_alimentacao.png"
-                               WidthRequest="24" HeightRequest="24"
-                               VerticalOptions="Center"/>
-                        <Label Grid.Column="1"
-                               Text="Alimentação - 1.100 kcal"
-                               FontFamily="DMSans"
-                               FontSize="15"
-                               TextColor="{StaticResource Saude4}"
-                               VerticalOptions="Center"/>
-                    </Grid>
+                <VerticalStackLayout x:Name="CheckInContent" Spacing="15">
+                    <!--Energia-->
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,10,0,0">
+                        <Border Grid.Column="0"
+                                Stroke="#2A3B5C" 
+                                StrokeThickness="1"
+                                BackgroundColor="Transparent"
+                                StrokeShape="RoundRectangle 12"
+                                HeightRequest="80"
+                                Padding="15">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="ENERGIA" FontSize="11" TextColor="#8A9BAE" FontFamily="DMSansBold"/>
+                                <Label x:Name="EnergiaLabel" Text="-" FontSize="20" FontFamily="DMSansBold" TextColor="{StaticResource Saude4}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    
 
                     <!--Sono-->
-                    <Grid ColumnDefinitions="32,*">
-                        <Image Grid.Column="0"
-                               Source="botao_sono.png"
-                               WidthRequest="24" HeightRequest="24"
-                               VerticalOptions="Center"/>
-                        <Label Grid.Column="1"
-                               Text="Sono - 21 pontos"
-                               FontFamily="DMSans"
-                               FontSize="15"
-                               TextColor="{StaticResource Saude4}"
-                               VerticalOptions="Center"/>
+                    <Border Grid.Column="1"
+                            Stroke="#2A3B5C" 
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="80"
+                            Padding="15">
+                        <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                            <Label Text="SONO" FontSize="11" FontFamily="DMSansBold" TextColor="#8A9BAE"/>
+                                <Label x:Name="SonoLabel" Text="- h" FontSize="20" FontFamily="DMSansBold" TextColor="{StaticResource Saude4}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
                     </Grid>
 
-                    <!--Treino-->
-                    <Grid ColumnDefinitions="32,*">
-                        <Image Grid.Column="0"
-                               Source="botao_treino.png"
-                               WidthRequest="24" HeightRequest="24"
-                               VerticalOptions="Center"/>
-                        <Label Grid.Column="1"
-                               Text="Treino realizado"
-                               FontFamily="DMSans"
-                               FontSize="15"
-                               TextColor="{StaticResource Saude4}"
-                               VerticalOptions="Center"/>
+                    <!--Humor-->
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,0,0,0">
+                        <Border Grid.Column="0"
+                            Stroke="#2A3B5C" 
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="80"
+                            Padding="15"
+                            Margin="0,3">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="HUMOR" FontSize="11" FontFamily="DMSansBold" TextColor="#8A9BAE"/>
+                                <Label x:Name="HumorLabel" Text="-" FontSize="20" FontFamily="DMSansBold" TextColor="{StaticResource Saude4}"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!--Treino-->
+                        <Border Grid.Column="1"
+                            Stroke="#2A3B5C" 
+                            StrokeThickness="1"
+                            BackgroundColor="Transparent"
+                            StrokeShape="RoundRectangle 12"
+                            HeightRequest="80"
+                            Padding="15">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="TREINO" FontSize="11" FontFamily="DMSansBold" TextColor="#8A9BAE"/>
+                                <Label x:Name="TreinoLabel" Text="-" FontSize="20" FontFamily="DMSansBold" TextColor="{StaticResource Saude4}"/>
+                            </VerticalStackLayout>
+                        </Border>
+
                     </Grid>
                 </VerticalStackLayout>
                 

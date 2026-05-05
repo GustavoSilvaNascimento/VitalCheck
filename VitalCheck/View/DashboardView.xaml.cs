@@ -20,6 +20,14 @@ public partial class DashboardView : ContentPage
         EmptyCheckIn.IsVisible = !temCheckIn;
     }
 
+    public void AtualizarCards(double energia, double sono, string humor, bool treino)
+    {
+        EnergiaLabel.Text = $"{energia}";
+        SonoLabel.Text = $"{sono}h";
+        HumorLabel.Text = humor;
+        TreinoLabel.Text = treino ? "Sim" : "Não";
+    }
+
     private void AjustarProgressBar(int score)
     {
         // Calcula largura proporcional ao container (~330px úteis)
@@ -34,6 +42,6 @@ public partial class DashboardView : ContentPage
 
     private async void ImageButton_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AdicionarCheckIn());
+        await Navigation.PushModalAsync(new AdicionarCheckIn(this));
     }
 }
