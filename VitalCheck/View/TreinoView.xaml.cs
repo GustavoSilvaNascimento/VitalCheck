@@ -41,4 +41,5 @@ public partial class TreinoView : ContentPage
     {
         await Navigation.PushModalAsync(new AdicionarTreinoModal(MeusTreinos));
     }
+
 }

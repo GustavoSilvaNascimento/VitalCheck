@@ -44,4 +44,10 @@ public partial class DashboardView : ContentPage
     {
         await Navigation.PushModalAsync(new AdicionarCheckIn(this));
     }
+
+    private void ImageButton_Clicked_1(object sender, EventArgs e)
+    {
+
+    }
+
 }

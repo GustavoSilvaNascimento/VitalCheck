@@ -189,7 +189,6 @@
                      VerticalOptions="End"
                      Margin="0,30"
                      Clicked="ImageButton_Clicked"/>
-
     </Grid>
 
 </ContentPage>
