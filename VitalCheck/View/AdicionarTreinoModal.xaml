@@ -27,8 +27,8 @@
         <Label Text="Exercicio 6:" FontSize="14" FontFamily="DMSans"/>
         <Entry x:Name="Exercicio6Entry" Placeholder="ex: Abdominal"/>
 
-        <Button Text="Salvar" Clicked="Salvar_Clicked" TextColor="White"/>
-        <Button Text="Cancelar" Clicked="Cancelar_Clicked" BackgroundColor="{StaticResource Saude1}" TextColor="Black"/>
+        <Button Text="Salvar" Clicked="Salvar_Clicked" TextColor="White" FontFamily="DMSansSemiBold"/>
+        <Button Text="Cancelar" Clicked="Cancelar_Clicked" BackgroundColor="{StaticResource Saude1}" TextColor="Black" FontFamily="DMSansSemiBold"/>
     </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

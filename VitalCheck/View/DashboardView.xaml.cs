@@ -10,7 +10,7 @@ public partial class DashboardView : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        AtualizarEstadoCheckIn(temCheckIn: false);
+        AtualizarEstadoCheckIn(temCheckIn: true);
         AjustarProgressBar(score: 75);
     }
 
@@ -30,5 +30,10 @@ public partial class DashboardView : ContentPage
                              score >= 70 ? "Quase lá!" :
                              score >= 40 ? "Bom progresso" :
                              "Vamos começar!";
+    }
+
+    private async void ImageButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new AdicionarCheckIn());
     }
 }

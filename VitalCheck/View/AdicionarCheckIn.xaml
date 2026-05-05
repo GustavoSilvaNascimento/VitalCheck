@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitalCheck.View.AdicionarCheckIn"
+             Title="Novo Check-in"
+             BackgroundColor="#80000000">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="8" VerticalOptions="Center" BackgroundColor="White" Margin="30">
+            <Label Text="Quantas horas você dormiu? (apenas números)" FontSize="14" FontFamily="DMSans"/>
+            <Entry x:Name="SonoHorasEntry" Placeholder="ex: 7"/>
+
+            <Label Text="Como você avalia sua energia hoje? (apenas números)" FontSize="14" FontFamily="DMSans"/>
+            <Entry x:Name="EnergiaEntry" Placeholder="ex: 6"/>
+
+            <Label Text="Como está seu humor hoje?" FontSize="14" FontFamily="DMSans"/>
+            <Picker x:Name="HumorPicker" Title="Selecione uma opção">
+                <Picker.Items>
+                    <x:String>Feliz</x:String>
+                    <x:String>Indiferente</x:String>
+                    <x:String>Tranquilo</x:String>
+                    <x:String>Animado</x:String>
+                    <x:String>Entediado</x:String>
+                    <x:String>Triste</x:String>
+                    <x:String>Irritado</x:String>
+                    <x:String>Desanimado</x:String>
+                    <x:String>Cansado</x:String>
+                    <x:String>Neutro</x:String>
+                    <x:String>Animado</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Você treinou hoje?" FontSize="14" FontFamily="DMSans"/>
+            <RadioButton x:Name="TreinoSimRadioButton" Content="Sim" GroupName="treinoGroup" />
+            <RadioButton x:Name="TreinoNaoRadioButton" Content="Não" GroupName="treinoGroup" />
+
+            <Button Text="Salvar" Clicked="Salvar_Clicked" TextColor="White" FontFamily="DMSansSemiBold"/>
+            <Button Text="Cancelar" Clicked="Cancelar_Clicked" BackgroundColor="{StaticResource Saude1}" TextColor="Black" FontFamily="DMSansSemiBold"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
