@@ -1,3 +1,5 @@
+using VitalCheck.Model;
+
 namespace VitalCheck.View;
 
 public partial class AdicionarCheckIn : ContentPage
@@ -42,7 +44,18 @@ public partial class AdicionarCheckIn : ContentPage
         // var novoCheckin = new CheckInModel { Sono = int.Parse(horasSono), ... };
         // dbContext.Add(novoCheckin);
 
-        _dashboard.AtualizarCards(energiaDouble, horasSonoDouble, humorSelecionado, treinouHoje);
+        //checkin temporario q deve ser substituido qnd for colocar a logica do banco de dados
+        var checkInTemporario = new CheckIn
+        {
+            ScoreEnergia = energiaDouble,
+            Sono = horasSonoDouble,
+            Humor = humorSelecionado,
+            Atividade = treinouHoje
+        };
+
+        int notaDoDia = checkInTemporario.VitalScore();
+
+        _dashboard.AtualizarCards(energiaDouble, horasSonoDouble, humorSelecionado, treinouHoje, notaDoDia);
         await Navigation.PopModalAsync();
     }
 

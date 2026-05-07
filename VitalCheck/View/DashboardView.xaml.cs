@@ -11,7 +11,6 @@ public partial class DashboardView : ContentPage
     {
         base.OnAppearing();
         AtualizarEstadoCheckIn(temCheckIn: true);
-        AjustarProgressBar(score: 75);
     }
 
     private void AtualizarEstadoCheckIn(bool temCheckIn)
@@ -20,12 +19,16 @@ public partial class DashboardView : ContentPage
         EmptyCheckIn.IsVisible = !temCheckIn;
     }
 
-    public void AtualizarCards(double energia, double sono, string humor, bool treino)
+    public void AtualizarCards(double energia, double sono, string humor, bool treino, int VitalScore)
     {
         EnergiaLabel.Text = $"{energia}";
         SonoLabel.Text = $"{sono}h";
         HumorLabel.Text = humor;
         TreinoLabel.Text = treino ? "Sim" : "Não";
+
+        int scoreDoDia = VitalScore;
+        ScoreLabel.Text = scoreDoDia.ToString();
+        AjustarProgressBar(scoreDoDia);
     }
 
     private void AjustarProgressBar(int score)
