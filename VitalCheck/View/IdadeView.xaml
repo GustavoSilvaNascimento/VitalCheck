@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VitalCheck.View.IdadeView">
+    <Grid>
     <VerticalStackLayout VerticalOptions="Center">
         <Grid>
             <Grid.RowDefinitions>
@@ -44,17 +45,20 @@
                 </VerticalStackLayout>
             </StackLayout>
 
-            <ImageButton 
-                Source="seta_direita_figma.png"
-                WidthRequest="30"
-                HeightRequest="30"
-                CornerRadius="30"
-                Aspect="AspectFit"
-                BackgroundColor="{StaticResource Saude4}"
-                HorizontalOptions="End"
-                VerticalOptions="End"
-                Margin="30,-140"
-                Clicked="ImageButton_Clicked"/>
+            
         </Grid>
+        
     </VerticalStackLayout>
+        <ImageButton 
+            Source="seta_direita_figma.png"
+            WidthRequest="30"
+            HeightRequest="30"
+            CornerRadius="30"
+            Aspect="AspectFit"
+            BackgroundColor="{StaticResource Saude4}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="30,0,20,70"
+            Clicked="ImageButton_Clicked"/>
+    </Grid>
 </ContentPage>

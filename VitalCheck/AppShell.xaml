@@ -19,7 +19,7 @@
              Icon="botao_home.png">
             <ShellContent Route="dashboard_home"
                           ContentTemplate="{DataTemplate views:DashboardView}"
-                          Shell.TabBarIsVisible="False"/>
+                          />
         </Tab>
         
         <!--Alterar as views depois-->

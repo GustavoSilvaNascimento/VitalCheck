@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VitalCheck.View.UsuarioModal"
+             Title="Seu perfil"
+             BackgroundColor="#80000000">
+    <VerticalStackLayout Padding="20" Spacing="8" VerticalOptions="Center" BackgroundColor="White" Margin="30">
+        <ImageButton Source="x_icon.png"
+            Aspect="AspectFit"
+            WidthRequest="40"
+            HeightRequest="40"
+            Padding="12"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            Margin="0,0,0,10"
+            Clicked="ImageButton_Clicked"/>
+        <Button
+            Text="Sair"
+            BackgroundColor="{StaticResource Saude2}"
+            TextColor="White"
+            FontFamily="DMSans"
+            WidthRequest="210"
+            CornerRadius="20"
+            Margin="0,10,0,6"
+            Clicked="Button_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

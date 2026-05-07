@@ -19,6 +19,9 @@
                                Aspect="AspectFill"
                                WidthRequest="36"
                                HeightRequest="36"/>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Border.GestureRecognizers>
                     </Border>
                     
                     <Label Grid.Row="1" Text="Olá, Fulano" 

@@ -50,4 +50,8 @@ public partial class DashboardView : ContentPage
 
     }
 
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushModalAsync(new UsuarioModal());
+    }
 }
