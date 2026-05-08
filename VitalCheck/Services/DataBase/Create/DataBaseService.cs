@@ -23,5 +23,10 @@ namespace VitalCheck.Services.DataBase.Create
             await CheckInConection.Init();
                 await UserTokenConnection.Init();
         }
+
+        public async Task<int> AddCheckInAsync(Model.CheckIn checkIn)
+        {
+            return await CheckInConection.AddAsync(checkIn);
+        }
     }
 }

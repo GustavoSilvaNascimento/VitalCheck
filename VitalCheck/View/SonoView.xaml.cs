@@ -18,4 +18,9 @@ public partial class SonoView : ContentPage
             await DisplayAlert("Erro", $"Erro insperado: {ex.Message}", "Ok");
         }
     }
+
+    public void AtualizarSono(double sono)
+    {
+        ScoreLabelSono.Text = $"{sono}h";
+    }
 }

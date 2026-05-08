@@ -38,22 +38,25 @@ public partial class AdicionarCheckIn : ContentPage
             return;
         }
 
-        // SALVAR NO BANCO DE DADOS!!!!
-
-        // ex:
-        // var novoCheckin = new CheckInModel { Sono = int.Parse(horasSono), ... };
-        // dbContext.Add(novoCheckin);
-
-        //checkin temporario q deve ser substituido qnd for colocar a logica do banco de dados
-        var checkInTemporario = new CheckIn
+        // criar e salvar checkin no banco
+        var novoCheckIn = new CheckIn
         {
             ScoreEnergia = energiaDouble,
             Sono = horasSonoDouble,
             Humor = humorSelecionado,
-            Atividade = treinouHoje
+            Atividade = treinouHoje,
+            Data = DateTime.Now
         };
 
-        int notaDoDia = checkInTemporario.VitalScore();
+        var services = Application.Current?.Handler?.MauiContext?.Services;
+
+        var db = services?.GetService<Services.DataBase.Create.IDataBaseService>();
+        if (db != null)
+        {
+            await db.AddCheckInAsync(novoCheckIn);
+        }
+
+        int notaDoDia = novoCheckIn.VitalScore();
 
         _dashboard.AtualizarCards(energiaDouble, horasSonoDouble, humorSelecionado, treinouHoje, notaDoDia);
         await Navigation.PopModalAsync();
