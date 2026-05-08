@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VitalCheck.View.TreinoView">
-    <!-- Agrupei os elementos filhos em um Grid para evitar definir 'Content' mais de uma vez -->
     <Grid>
         <ScrollView>
             <VerticalStackLayout Padding="30,20,30,100" Spacing="0">

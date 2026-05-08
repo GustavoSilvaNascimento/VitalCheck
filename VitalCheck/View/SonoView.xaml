@@ -25,9 +25,6 @@
                 VerticalOptions="Center"
                 Margin="0,70"/>
                 
-                <!--Inserir score de acordo com o sono colocado no check in
-                    //aqui
-                -->
                 
             </Grid>
 

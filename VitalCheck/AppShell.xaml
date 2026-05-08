@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:VitalCheck"
     xmlns:views="clr-namespace:VitalCheck.View"
-    Title="VitalCheck">
+    Title="VitalCheck"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="{StaticResource Saude4}">
 
     <ShellContent
         
@@ -15,7 +17,7 @@
         Shell.TabBarIsVisible="False"/>
 
     <TabBar>
-        <Tab Title="Início"
+        <Tab
              Icon="botao_home.png">
             <ShellContent Route="dashboard_home"
                           ContentTemplate="{DataTemplate views:DashboardView}"
@@ -23,21 +25,21 @@
         </Tab>
         
         <!--Alterar as views depois-->
-        <Tab Title="Alimentação"
+        <Tab
              Icon="botao_alimentacao.png">
             <ShellContent Route="dashboard_alimentacao"
                           ContentTemplate="{DataTemplate views:AlimentacaoView}"
                           Shell.TabBarIsVisible="False"/>
         </Tab>
 
-        <Tab Title="Treino"
+        <Tab
              Icon="botao_treino.png">
             <ShellContent Route="dashboard_treino"
                           ContentTemplate="{DataTemplate views:TreinoView}"
                           Shell.TabBarIsVisible="False"/>
         </Tab>
 
-        <Tab Title="Sono"
+        <Tab
              Icon="botao_sono.png">
             <ShellContent Route="dashboard_sono"
                           ContentTemplate="{DataTemplate views:SonoView}"
