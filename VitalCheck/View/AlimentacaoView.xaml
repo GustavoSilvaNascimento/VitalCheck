@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VitalCheck.View.AlimentacaoView"
              >
+    <Grid>
     <ScrollView>
         <VerticalStackLayout Padding="30,20,30,100" Spacing="0">
             
-            <Grid RowDefinitions="auto">
+            <Grid RowDefinitions="auto, auto">
                 <ImageButton Grid.Row="0"
                              Source="left.png"
                              WidthRequest="15"
@@ -18,15 +19,36 @@
                              Clicked="ImageButton_Clicked"/>
 
                 <Label Grid.Row="0"
-                       Text="Resumo Alimentar"
-                       FontFamily="DMSans"
+                       Text="Sua alimentação"
+                       FontFamily="DMSansSemiBold"
                        TextColor="{StaticResource Saude4}"
-                       FontSize="18"
+                       FontSize="22"
                        HorizontalOptions="Start"
                        VerticalOptions="Center"
-                       Margin="60,0"/>
-            </Grid>
+                       Margin="0,70"/>
+
+                <Label Grid.Row="1"
+                       Text="Calorias"
+                       FontFamily="DMSansSemiBold"
+                       TextColor="{StaticResource Saude4}"
+                       FontSize="20"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"
+                       Margin="0,-40"/>
+                </Grid>
+            
+            
             
         </VerticalStackLayout>
     </ScrollView>
+        <ImageButton Source="botaoa_adicionar.png"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    CornerRadius="30"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Margin="0, 30"
+                    Clicked="ImageButton_Clicked_1"/>
+    </Grid>
 </ContentPage>

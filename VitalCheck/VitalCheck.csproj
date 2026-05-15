@@ -76,6 +76,9 @@
 	  <MauiXaml Update="View\AdicionarCheckIn.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\AdicionarRefeicaoModal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\AdicionarTreinoModal.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

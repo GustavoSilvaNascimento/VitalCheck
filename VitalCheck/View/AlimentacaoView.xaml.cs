@@ -17,4 +17,9 @@ public partial class AlimentacaoView : ContentPage
             await DisplayAlert("Erro", $"Erro insperado: {ex.Message}", "Ok");
         }
     }
+
+    private async void ImageButton_Clicked_1(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new AdicionarRefeicaoModal());
+    }
 }

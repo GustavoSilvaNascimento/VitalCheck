@@ -33,7 +33,7 @@
                 <!--Lista de Treinos com CollectionView-->
                 <CollectionView x:Name="ListaTreinos" Margin="0,-40,0,40">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="20" VerticalItemSpacing="20"/>
+                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="20" VerticalItemSpacing="20"/>
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>
@@ -42,16 +42,16 @@
                                 <Border Stroke="{StaticResource Saude4}"
                                         StrokeThickness="1"
                                         StrokeShape="RoundRectangle 20"
-                                        HeightRequest="140"
-                                        Padding="10">
+                                        HeightRequest="167"
+                                        >
 
                                     <Border.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="Treino_Tapped" CommandParameter="{Binding .}"/>
                                     </Border.GestureRecognizers>
 
-                                    <Grid>
-                                        <Image Source="botao_treino.png" HorizontalOptions="Center" VerticalOptions="Start"
-                               WidthRequest="100" HeightRequest="100" Margin="5"/>
+                                    <Grid BackgroundColor="#c9c8c8">
+                                        <Image Source="imagem_treino.png" HorizontalOptions="Fill" VerticalOptions="Start"
+                                Margin="0" />
                                     </Grid>
                                 </Border>
 
