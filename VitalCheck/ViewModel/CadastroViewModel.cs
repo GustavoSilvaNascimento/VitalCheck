@@ -123,6 +123,8 @@ namespace VitalCheck.ViewModels
                     return;
                 }
 
+                Preferences.Set("NomeUsuario", token.Nome);
+
                 await Shell.Current.GoToAsync("PesoGenero");
             }
             catch (Exception ex)

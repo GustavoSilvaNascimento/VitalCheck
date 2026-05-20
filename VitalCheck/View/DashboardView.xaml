@@ -23,8 +23,8 @@
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Border.GestureRecognizers>
                     </Border>
-                    
-                    <Label Grid.Row="1" Text="Olá, Fulano" 
+
+                    <Label Grid.Row="1" Text="{Binding NomeUsuario, StringFormat='Olá, {0}'}" 
                             FontFamily="DMSans"
                             TextColor="{StaticResource Saude4}"
                             FontSize="16" 

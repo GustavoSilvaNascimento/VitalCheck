@@ -63,6 +63,7 @@ namespace VitalCheck.ViewModels
 
                 if (token != null)
                 {
+                    Preferences.Set("NomeUsuario", token.Nome);
                     await Shell.Current.GoToAsync(
                         "//dashboard_home");
                 }

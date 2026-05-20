@@ -7,6 +7,7 @@ using VitalCheck.Services.Security;
 using VitalCheck.Services.Settings;
 using VitalCheck.Services.Users;
 using VitalCheck.View;
+using VitalCheck.ViewModel;
 using VitalCheck.ViewModels;
 
 
@@ -43,6 +44,7 @@ namespace VitalCheck
             builder.Services.AddTransient<CadastroViewModel>();
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<BaseViewModel>();
+            builder.Services.AddTransient<DashboardViewModel>();
 
             return builder;
         }

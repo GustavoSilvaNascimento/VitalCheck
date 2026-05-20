@@ -38,9 +38,22 @@ public partial class AdicionarCheckIn : ContentPage
             return;
         }
 
+        var services = Application.Current?.Handler?.MauiContext?.Services;
+        var db = services?.GetService<Services.DataBase.Create.IDataBaseService>();
+        var settingsService = services?.GetService<Services.Settings.ISettingsService>();
+
+        //Buscando o ID do usuario logado
+        int userId = 0;
+        if(settingsService != null)
+        {
+            var logId = await settingsService.GetUserIdAsync();
+            userId = logId ?? 0;
+        }
+
         // criar e salvar checkin no banco
         var novoCheckIn = new CheckIn
         {
+            IdUsuario = userId,
             ScoreEnergia = energiaDouble,
             Sono = horasSonoDouble,
             Humor = humorSelecionado,
@@ -48,9 +61,7 @@ public partial class AdicionarCheckIn : ContentPage
             Data = DateTime.Now
         };
 
-        var services = Application.Current?.Handler?.MauiContext?.Services;
-
-        var db = services?.GetService<Services.DataBase.Create.IDataBaseService>();
+        
         if (db != null)
         {
             await db.AddCheckInAsync(novoCheckIn);

@@ -50,7 +50,7 @@
                                     </Border.GestureRecognizers>
 
                                     <Grid BackgroundColor="#c9c8c8">
-                                        <Image Source="imagem_treino.png" HorizontalOptions="Fill" VerticalOptions="Start"
+                                        <Image Source="imagem_treino.png" Aspect="Fill" HorizontalOptions="Fill" VerticalOptions="Fill"
                                 Margin="0" />
                                     </Grid>
                                 </Border>

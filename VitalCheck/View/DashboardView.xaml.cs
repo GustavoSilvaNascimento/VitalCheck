@@ -1,16 +1,52 @@
+using VitalCheck.ViewModel;
+using VitalCheck.ViewModels;
+
 namespace VitalCheck.View;
 
 public partial class DashboardView : ContentPage
 {
-	public DashboardView()
+	public DashboardView(DashboardViewModel vm)
 	{
 		InitializeComponent();
-
+        BindingContext = vm;
 	}
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
         AtualizarEstadoCheckIn(temCheckIn: true);
+
+        var services = Application.Current?.Handler?.MauiContext?.Services;
+        var db = services?.GetService<Services.DataBase.Create.IDataBaseService>();
+        var settingsService = services?.GetService<Services.Settings.ISettingsService>();
+
+        if(db != null && settingsService != null)
+        {
+            var userId = await settingsService.GetUserIdAsync();
+
+            if (userId.HasValue)
+            {
+                var ultimoCheckIn = await db.GetUltimoCheckInAsync(userId.Value);
+
+                if(ultimoCheckIn != null)
+                {
+                    AtualizarEstadoCheckIn(temCheckIn: true);
+
+                    int notaDoDia = ultimoCheckIn.VitalScore();
+
+                    AtualizarCards(
+                        ultimoCheckIn.ScoreEnergia,
+                        ultimoCheckIn.Sono,
+                        ultimoCheckIn.Humor,
+                        ultimoCheckIn.Atividade,
+                        notaDoDia
+                    );
+                }
+                else
+                {
+                    AtualizarEstadoCheckIn(temCheckIn: false);
+                }
+            }
+        }
     }
 
     private void AtualizarEstadoCheckIn(bool temCheckIn)
