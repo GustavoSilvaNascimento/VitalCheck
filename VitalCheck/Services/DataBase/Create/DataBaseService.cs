@@ -8,11 +8,13 @@ namespace VitalCheck.Services.DataBase.Create
     {
         public SQLiteConnection<Usuario> UserConection { get; } =
             new SQLiteConnection<Usuario>();
-
         public SQLiteConnection<CheckIn> CheckInConection { get; } =
             new SQLiteConnection<CheckIn>();
         public SQLiteConnection<UserToken> UserTokenConnection { get; } =
             new SQLiteConnection<UserToken>();
+        public SQLiteConnection<Treino> TreinoConection { get; } =
+            new SQLiteConnection<Treino>();
+
         public DataBaseService()
         {
         }
@@ -21,7 +23,8 @@ namespace VitalCheck.Services.DataBase.Create
         {
             await UserConection.Init();
             await CheckInConection.Init();
-                await UserTokenConnection.Init();
+            await UserTokenConnection.Init();
+            await TreinoConection.Init();
         }
 
         public async Task AddCheckInAsync(CheckIn checkIn)
@@ -37,6 +40,20 @@ namespace VitalCheck.Services.DataBase.Create
                 .Where(x => x.IdUsuario == idUsuario)
                 .OrderByDescending(x => x.Data)
                 .FirstOrDefault();
+        }
+
+        public async Task AddTreinoAsync(Treino treino)
+        {
+            await TreinoConection.AddAsync(treino);
+        }
+
+        public async Task<List<Treino>> GetTodosTreinosAsync(int idUsuario)
+        {
+            var todosTreinos = await TreinoConection.GetAllAsync();
+
+            return todosTreinos
+                .Where(x => x.IdUsuario == idUsuario)
+                .ToList();
         }
     }
 }

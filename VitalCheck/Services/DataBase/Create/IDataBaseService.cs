@@ -12,6 +12,8 @@ namespace VitalCheck.Services.DataBase.Create
         Task InitAsync();
         Task AddCheckInAsync(CheckIn checkIn);
         Task<CheckIn?> GetUltimoCheckInAsync(int idUsuario);
+        Task AddTreinoAsync(Treino treino);
+        Task<List<Treino>> GetTodosTreinosAsync(int idUsuario);
 
     }
 }
